@@ -1,0 +1,22 @@
+panel	metric	label	value	unit	source
+A	final_read_count	Dorado SUP basecalling reads	3726422	reads	scripts/plot_figure1_workflow.R
+A	final_base_count	Dorado SUP basecalling bases	11161804683	bp	scripts/plot_figure1_workflow.R
+A	final_base_count	Dorado SUP basecalling bases	11.16	Gb	scripts/plot_figure1_workflow.R
+A	single_copy_depth	Single-copy depth proxy	102.56	x	scripts/plot_figure1_workflow.R
+A	estimated_genome_size	Estimated genome size from bases/depth	108.83	Mb	scripts/plot_figure1_workflow.R
+A	haplotig_like_removed	Haplotig-like contigs removed	34	contigs	haplotig.ids
+A	predicted_transcripts	GALBA/gffread predicted transcripts	33845	transcripts	scripts/plot_figure1_workflow.R
+A	any_rna_supported_genes	Genes supported by any RNA platform	22302	genes	Express/multiomics_gene_evidence_matrix.tsv
+A	all_three_rna_supported_genes	Genes supported by all three RNA platforms	17671	genes	Express/multiomics_gene_evidence_matrix.tsv
+A	proteomics_supported_genes	Proteomics-supported genes	489	genes	Express/multiomics_gene_evidence_matrix.tsv
+B	structural_backbone_span	flye_len15k/assembly.fasta span	101.43	Mb	flye_len15k/assembly.fasta
+B	structural_backbone_contigs	flye_len15k/assembly.fasta contigs	212	contigs	flye_len15k/assembly.fasta
+B	structural_backbone_n50	flye_len15k/assembly.fasta N50	924.5	kb	flye_len15k/assembly.fasta
+B	archived_single_round_span	Ttenax.nohap.dorado_polished.fasta.gz span	99.19	Mb	final_ref/Ttenax.nohap.dorado_polished.fasta.fai
+B	archived_single_round_contigs	Ttenax.nohap.dorado_polished.fasta.gz contigs	178	contigs	final_ref/Ttenax.nohap.dorado_polished.fasta.fai
+B	archived_single_round_n50	Ttenax.nohap.dorado_polished.fasta.gz N50	939.5	kb	final_ref/Ttenax.nohap.dorado_polished.fasta.fai
+B	polish_mapping_rate	Round 1/2 primary-read mapping rate	98.40	percent	polish_round_qc_summary.tsv
+B	strict_indel_bp_round1	Strict high-confidence INDEL bp, round 1	31295	bp	polish_round_qc_summary.tsv
+B	strict_indel_bp_round2	Strict high-confidence INDEL bp, round 2	26323	bp	polish_round_qc_summary.tsv
+B	final_annotation_reference_span	draft.polish2.bs6.fasta span	99.19	Mb	dorado_polish_gpu1/draft.polish2.bs6.fasta.fai
+B	final_annotation_reference_contigs	draft.polish2.bs6.fasta contigs	178	contigs	dorado_polish_gpu1/draft.polish2.bs6.fasta.fai

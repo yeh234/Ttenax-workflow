@@ -1,0 +1,226 @@
+source_table	label	path	span_bp	span_mb	n50_bp	n50_kb	contigs	metric	value	source	contig	depth_x	length_bp	category
+figures/Tt_Figure3_depth_validation_v1_source_metrics.tsv	len15k backbone	flye_len15k/assembly.fasta	101428890	101.42889	924532	924.532	212							
+figures/Tt_Figure3_depth_validation_v1_source_metrics.tsv	haplotig-reduced draft	flye_len15k/assembly.no_haplotig.fasta	99223629	99.223629	940535	940.535	178							
+figures/Tt_Figure3_depth_validation_v1_source_metrics.tsv	final annotation reference	dorado_polish_gpu1/draft.polish2.bs6.fasta.fai	99194240	99.19424	939459	939.459	178							
+figures/Tt_Figure3_depth_validation_v1_depth_metrics.tsv								single_copy_depth_x	102.56	manifest and methods proxy depth				
+figures/Tt_Figure3_depth_validation_v1_depth_metrics.tsv								basecalled_bases	11161804683	methods final dataset				
+figures/Tt_Figure3_depth_validation_v1_depth_metrics.tsv								estimated_genome_size_mb	108.831948937207	basecalled_bases / single_copy_depth_x				
+figures/Tt_Figure3_depth_validation_v1_depth_metrics.tsv								haplotig_like_contigs	34	haplotig_like.tsv				
+figures/Tt_Figure3_depth_validation_v1_depth_metrics.tsv								very_low_depth_contigs	3	verylow.tsv				
+figures/Tt_Figure3_depth_validation_v1_depth_metrics.tsv								repeat_gt_1p5C_contigs	11	repeat_gt1p5C.tsv				
+figures/Tt_Figure3_depth_validation_v1_depth_metrics.tsv								collapsed_repeat_gt_2C_contigs	6	collapsed.repeat.tsv				
+figures/Tt_Figure3_depth_validation_v1_depth_metrics.tsv								haplotig_reduction_span_loss_mb	2.20526099999999	flye_len15k/assembly.fasta vs assembly.no_haplotig.fasta				
+figures/Tt_Figure3_depth_validation_v1_depth_metrics.tsv								flow_cytometry_comparator_mb	133	Zubacova et al. 2008, Mol Biochem Parasitol; doi:10.1016/j.molbiopara.2008.06.004				
+figures/Tt_Figure3_depth_validation_v1_depth_metrics.tsv								flow_cytometry_comparator_sd_mb	4	Zubacova et al. 2008, Mol Biochem Parasitol; doi:10.1016/j.molbiopara.2008.06.004				
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_276	17.41	287	very-low
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_395	19.88	32836	very-low
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_449	20.93	21740	very-low
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_387	36.63	34782	haplotig-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_392	41.44	53240	haplotig-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_162	44.44	32680	haplotig-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_177	44.89	36621	haplotig-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_128	48.62	3280	haplotig-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_423	48.83	24959	haplotig-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_122	50.99	33237	haplotig-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_398	51.79	9592	haplotig-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_396	54.12	52556	haplotig-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_338	55.75	23029	haplotig-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_241	56.85	28346	haplotig-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_447	57.57	43527	haplotig-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_198	57.79	54869	haplotig-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_445	58.7	32995	haplotig-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_362	59.45	66109	haplotig-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_415	59.45	40712	haplotig-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_180	59.66	88574	haplotig-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_373	59.8	128973	haplotig-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_264	59.98	6743	haplotig-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_66	62.29	34548	haplotig-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_170	65.69	89880	haplotig-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_370	65.99	37607	haplotig-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_210	67.56	136664	haplotig-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_193	68.95	26603	haplotig-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_419	70.66	31388	haplotig-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_411	70.88	34763	haplotig-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_201	71.37	119981	haplotig-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_124	72.95	30568	haplotig-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_236	73.36	100565	haplotig-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_296	75.52	356322	haplotig-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_116	75.83	243545	haplotig-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_301	76.13	43779	haplotig-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_211	76.14	56918	haplotig-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_374	76.88	67306	haplotig-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_200	76.96	141959	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_440	77.06	127632	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_231	78.48	14551	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_422	78.74	30303	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_203	79.08	30762	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_217	79.76	184297	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_369	80.68	9671	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_158	80.77	249784	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_418	81.52	146798	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_195	82	374734	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_443	82.19	27061	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_18	82.81	720058	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_218	83.17	95155	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_190	83.71	125306	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_146	85.07	120940	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_243	85.33	217506	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_121	85.49	70805	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_60	85.74	441284	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_144	86.06	722357	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_430	86.97	296096	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_257	87.16	41401	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_134	87.66	205211	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_45	87.66	65328	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_140	87.86	353106	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_240	89.08	78800	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_342	89.47	10458	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_145	90.61	462037	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_54	91.69	44760	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_163	92.21	153189	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_108	92.47	437690	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_89	92.56	531068	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_278	93.1	452040	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_188	93.28	297505	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_388	93.41	269383	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_251	93.43	1217367	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_260	93.47	34627	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_44	93.67	484365	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_314	93.76	1069412	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_109	93.86	151514	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_237	93.92	890668	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_151	94.35	402819	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_305	95.65	500127	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_347	95.8	492428	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_32	95.81	1831	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_107	96.05	397847	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_143	96.26	39848	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_186	96.27	295171	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_39	96.62	258131	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_118	96.72	1001231	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_442	96.77	138464	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_138	96.95	758752	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_420	97.03	226673	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_320	97.12	364572	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_141	97.78	690262	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_84	97.79	781540	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_79	97.92	763093	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_20	98.29	530475	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_176	98.35	523858	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_58	98.53	1087232	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_111	98.78	229478	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_119	98.94	1760823	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_345	99.14	248045	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_88	99.31	345181	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_152	99.35	1194674	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_77	100.67	843893	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_175	101.62	366710	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_142	101.83	1502748	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_161	101.97	1242676	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_214	102.56	426296	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_256	102.6	509232	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_199	102.81	900005	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_391	102.84	88889	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_110	103.05	2797107	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_181	103.09	1028775	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_213	103.38	1599952	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_129	103.53	2012110	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_253	103.54	1140675	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_94	103.67	782846	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_282	103.87	162538	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_136	104.1	396224	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_366	104.13	76382	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_98	104.54	1224954	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_68	104.55	212865	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_182	104.6	602697	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_103	104.73	2473435	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_191	104.83	565772	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_139	104.91	608486	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_70	105.13	275944	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_297	105.15	284313	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_196	105.61	197184	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_83	105.85	403349	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_37	106.06	3767270	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_16	106.17	1768986	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_123	106.33	718333	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_164	106.51	141607	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_204	106.7	242859	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_49	106.81	1015206	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_206	107.1	656460	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_289	107.42	850496	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_85	107.7	366638	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_397	107.83	413793	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_235	107.88	403942	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_349	108.13	1062096	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_209	108.32	1005699	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_133	108.38	1005715	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_92	108.41	924532	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_215	108.75	355908	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_435	108.81	493565	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_266	108.87	333631	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_304	108.97	451008	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_197	109.11	1185059	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_168	109.18	1260265	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_178	109.54	335782	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_149	109.56	312357	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_192	109.79	302582	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_263	109.83	228618	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_150	109.9	800551	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_102	109.99	1373051	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_311	110.08	285012	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_106	110.15	2393434	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_80	110.44	1397690	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_219	110.5	799971	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_285	110.6	235676	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_24	110.75	940535	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_246	111.02	90738	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_421	111.41	136379	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_303	111.63	760225	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_315	111.88	363235	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_165	111.89	997608	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_441	112.14	73776	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_306	112.63	622196	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_234	113.23	909938	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_90	113.4	618861	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_100	113.46	2194334	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_207	113.9	2285141	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_137	113.93	836718	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_371	114.3	507289	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_154	114.33	2329827	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_429	114.42	78127	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_171	114.57	337990	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_179	114.94	894456	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_125	115.04	778040	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_132	115.09	260262	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_155	115.67	215532	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_381	115.89	136152	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_376	116.31	611886	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_153	116.33	443191	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_212	116.4	460900	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_258	116.82	233911	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_194	117.9	970301	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_446	118.24	407995	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_114	118.84	336863	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_222	119.01	482504	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_208	119.19	734218	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_67	120.47	192680	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_438	121.13	431220	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_202	121.75	1094986	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_293	123.54	147648	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_216	131.81	300225	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_265	132.74	121281	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_252	135.05	427438	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_357	143.5	190915	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_367	145.62	58451	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_205	145.78	139298	primary-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_425	165.36	114784	>1.5C repeat-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_262	172.75	11618	>1.5C repeat-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_416	188.69	75900	>1.5C repeat-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_187	189.32	96234	>1.5C repeat-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_426	198.17	96952	>1.5C repeat-like
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_348	237.89	12482	>2C collapsed-repeat
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_157	243.92	107370	>2C collapsed-repeat
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_360	247.64	18681	>2C collapsed-repeat
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_160	422.06	370018	>2C collapsed-repeat
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_310	487.85	18542	>2C collapsed-repeat
+figures/Tt_Figure3_depth_validation_v1_contig_depth_classes.tsv											contig_365	563.27	49523	>2C collapsed-repeat
