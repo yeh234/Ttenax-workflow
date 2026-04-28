@@ -108,9 +108,9 @@ draw_horizontal_bars <- function(x0, y0, width, height, title, values, labels,
   plot_x0 <- if (label_left) x0 + 0.092 else x0 + 0.010
   plot_x1 <- x0 + width - 0.012
   plot_w <- plot_x1 - plot_x0
-  axis_y <- y0 + 0.018
+  axis_y <- y0 + 0.026
   top_pad <- 0.018
-  bottom_pad <- 0.050
+  bottom_pad <- 0.065
   bar_area_h <- height - top_pad - bottom_pad
   n <- length(values)
   gap <- bar_area_h / n
@@ -128,8 +128,8 @@ draw_horizontal_bars <- function(x0, y0, width, height, title, values, labels,
              gp = gpar(col = axis_col, lwd = 0.9))
   draw_axis_ticks(plot_x0, axis_y, plot_w, ticks, max_value)
 
-  grid.text(axis_title, x = plot_x0 + plot_w / 2, y = y0 - 0.010,
-            gp = gpar(fontsize = 9.0, col = line_col))
+  grid.text(axis_title, x = plot_x0 + plot_w / 2, y = y0 - 0.018,
+            gp = gpar(fontsize = 8.4, col = line_col))
 
   for (i in seq_along(values)) {
     y <- y0 + height - top_pad - (i - 0.5) * gap
@@ -152,6 +152,24 @@ draw_horizontal_bars <- function(x0, y0, width, height, title, values, labels,
               just = just,
               gp = gpar(fontsize = 8.2, col = line_col))
   }
+}
+
+draw_note_box <- function(x, y, width, height, body, title = "Comparison result:",
+                          title_size = 8.6, body_size = 8.0,
+                          lineheight = 1.05) {
+  grid.roundrect(x = x, y = y, width = width, height = height,
+                 r = unit(0.010, "snpc"),
+                 gp = gpar(fill = note_fill, col = "#D9B36A", lwd = 0.8))
+  grid.text(
+    title,
+    x = x, y = y + height * 0.30,
+    gp = gpar(fontsize = title_size, fontface = "bold", col = line_col)
+  )
+  grid.text(
+    body,
+    x = x, y = y - height * 0.10,
+    gp = gpar(fontsize = body_size, col = line_col, lineheight = lineheight)
+  )
 }
 
 draw_round_box <- function(x, y, width, height, title, body,
@@ -324,51 +342,35 @@ draw_figure <- function() {
     value_formatter = fmt_int, tick_step = 750, label_left = FALSE
   )
 
-  grid.roundrect(x = 0.500, y = 0.505, width = 0.720, height = 0.050,
-                 r = unit(0.010, "snpc"),
-                 gp = gpar(fill = note_fill, col = "#D9B36A", lwd = 0.8))
-  grid.text(
+  draw_note_box(
+    x = 0.500, y = 0.493, width = 0.720, height = 0.056,
     paste0(
-      "The >=15 kb assembly was retained as the structural backbone: ",
+      "The >=15 kb assembly was retained as the structural backbone.\n",
       fmt2(backbone$span_mb), " Mb, ", fmt_int(backbone$contigs),
       " contigs, N50 ", fmt1(backbone$n50_kb), " kb."
     ),
-    x = 0.500, y = 0.505,
-    gp = gpar(fontsize = 9.2, col = line_col)
+    title_size = 8.6,
+    body_size = 8.2,
+    lineheight = 1.05
   )
 
   draw_panel_title("B", "Backbone and annotation-oriented assembly products", 0.035, 0.450)
 
-  grid.roundrect(x = 0.365, y = 0.392, width = 0.545, height = 0.055,
-                 r = unit(0.010, "snpc"),
-                 gp = gpar(fill = note_fill, col = "#D9B36A", lwd = 0.8))
-  grid.text(
-    paste0(
-      "Depth diagnosis on the selected backbone: ",
-      fmt1(single_copy_depth), "x single-copy depth proxy; ",
-      fmt2(estimated_genome_mb), " Mb genome-size estimate\n",
-      fmt_int(haplotig_removed), " haplotig-like and ",
-      fmt_int(very_low_contigs), " very-low-depth contigs flagged."
-    ),
-    x = 0.365, y = 0.392,
-    gp = gpar(fontsize = 8.1, col = line_col, lineheight = 1.0)
-  )
-
-  b_y <- 0.275
-  b_h <- 0.130
+  b_y <- 0.305
+  b_h <- 0.120
   b_w <- 0.177
-  x1 <- 0.148
-  x2 <- 0.365
-  x3 <- 0.582
+  x1 <- 0.145
+  x2 <- 0.345
+  x3 <- 0.545
 
   draw_round_box(
     x1, b_y, b_w, b_h,
     "Structural backbone",
     paste0(
       "flye_len15k/assembly.fasta\n",
-      fmt2(backbone$span_mb), " Mb\n",
-      fmt_int(backbone$contigs), " contigs\n",
-      "N50 ", fmt1(backbone$n50_kb), " kb"
+      fmt2(backbone$span_mb), " Mb; ", fmt_int(backbone$contigs), " contigs\n",
+      "N50 ", fmt1(backbone$n50_kb), " kb\n",
+      "Use: structural comparisons"
     ),
     fill = note_fill
   )
@@ -377,9 +379,9 @@ draw_figure <- function() {
     "Annotation draft",
     paste0(
       "assembly.no_haplotig.fasta\n",
-      fmt2(nohap$span_mb), " Mb\n",
-      fmt_int(nohap$contigs), " contigs\n",
-      "removed ", fmt_int(haplotig_removed), " haplotig-like contigs"
+      fmt2(nohap$span_mb), " Mb; ", fmt_int(nohap$contigs), " contigs\n",
+      "removed ", fmt_int(haplotig_removed), " haplotig-like contigs\n",
+      "intermediate draft"
     )
   )
   draw_round_box(
@@ -387,34 +389,28 @@ draw_figure <- function() {
     "Final reference",
     paste0(
       "draft.polish2.bs6.fasta\n",
-      fmt2(polish2$span_mb), " Mb\n",
-      fmt_int(polish2$contigs), " contigs\n",
-      "N50 ", fmt1(polish2$n50_kb), " kb"
+      fmt2(polish2$span_mb), " Mb; ", fmt_int(polish2$contigs), " contigs\n",
+      "N50 ", fmt1(polish2$n50_kb), " kb\n",
+      "Use: annotation release"
     ),
     fill = "#F3F8FB"
   )
 
-  draw_arrow(x1 + b_w / 2 + 0.012, b_y, x2 - b_w / 2 - 0.012, b_y)
-  draw_arrow(x2 + b_w / 2 + 0.012, b_y, x3 - b_w / 2 - 0.012, b_y)
+  draw_arrow(x1 + b_w / 2 + 0.005, b_y, x2 - b_w / 2 - 0.005, b_y)
+  draw_arrow(x2 + b_w / 2 + 0.005, b_y, x3 - b_w / 2 - 0.005, b_y)
 
-  grid.roundrect(x = x1, y = 0.155, width = 0.118, height = 0.042,
-                 r = unit(0.010, "snpc"),
-                 gp = gpar(fill = "white", col = line_col, lwd = 1.1))
-  grid.text("Structural use", x = x1, y = 0.155,
-            gp = gpar(fontsize = 9.2, fontface = "bold", col = line_col))
-  grid.roundrect(x = x3, y = 0.155, width = 0.130, height = 0.042,
-                 r = unit(0.010, "snpc"),
-                 gp = gpar(fill = "white", col = line_col, lwd = 1.1))
-  grid.text("Annotation use", x = x3, y = 0.155,
-            gp = gpar(fontsize = 9.2, fontface = "bold", col = line_col))
-
-  grid.text(
+  draw_note_box(
+    x = 0.345, y = 0.105, width = 0.505, height = 0.074,
     paste0(
-      "The archived single-round copy was ", fmt2(archived$span_mb),
-      " Mb; the later two-round Dorado product was treated as the final local working reference."
+      "Depth screen: ", fmt1(single_copy_depth), "x single-copy depth; ",
+      fmt2(estimated_genome_mb), " Mb genome-size estimate.\n",
+      fmt_int(haplotig_removed), " haplotig-like and ",
+      fmt_int(very_low_contigs), " very-low-depth contigs flagged.\n",
+      "Polish2 was retained as the final local working reference."
     ),
-    x = 0.365, y = 0.095,
-    gp = gpar(fontsize = 8.4, col = muted_col)
+    title_size = 8.2,
+    body_size = 7.1,
+    lineheight = 0.98
   )
 
   draw_panel_title("C", "ORF-oriented polishing comparison", 0.690, 0.450)
@@ -445,17 +441,17 @@ draw_figure <- function() {
   bp_drop <- strict_bp[[1]] - strict_bp[[2]]
   bp_drop_pct <- bp_drop / strict_bp[[1]] * 100
 
-  grid.roundrect(x = 0.830, y = 0.105, width = 0.275, height = 0.070,
-                 r = unit(0.010, "snpc"),
-                 gp = gpar(fill = note_fill, col = "#D9B36A", lwd = 0.8))
-  grid.text(
+  draw_note_box(
+    x = 0.830, y = 0.095, width = 0.285, height = 0.080,
     paste0(
-      "Round 2 retained: mapped reads ", fmt_pct(mapped_pct),
-      "; strict INDELs -", fmt_int(indel_drop),
+      "Polish2 retained ", fmt_pct(mapped_pct),
+      " mapped reads while\nreducing strict INDEL burden.\n",
+      "Strict INDELs -", fmt_int(indel_drop),
       "; strict INDEL bp -", fmt_int(bp_drop), " (", fmt1(bp_drop_pct), "%)."
     ),
-    x = 0.830, y = 0.105,
-    gp = gpar(fontsize = 8.7, col = line_col)
+    title_size = 8.2,
+    body_size = 7.1,
+    lineheight = 0.98
   )
 
   grid.text(

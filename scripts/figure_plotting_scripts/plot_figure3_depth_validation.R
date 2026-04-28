@@ -401,26 +401,6 @@ draw_scatter_panel <- function(x0, y0, width, height, depth_df, single_copy_dept
     )
   }
 
-  contig160 <- depth_df[depth_df$contig == "contig_160", ]
-  if (nrow(contig160) == 1) {
-    px <- map_x(contig160$length_bp)
-    py <- map_y(contig160$depth_x)
-    label_x <- px - 0.020
-    label_y <- min(py + 0.060, top - 0.010)
-    grid.lines(
-      unit(c(label_x + 0.004, px), "npc"),
-      unit(c(label_y - 0.012, py + 0.004), "npc"),
-      gp = gpar(col = collapsed_col, lwd = 0.8)
-    )
-    grid.text(
-      paste0("contig_160: 370 kb @ ", fmt1(contig160$depth_x), "x"),
-      x = label_x,
-      y = label_y,
-      just = c("right", "center"),
-      gp = gpar(fontsize = 7.5, col = collapsed_col)
-    )
-  }
-
   grid.text(
     "Contig length",
     x = left + plot_w / 2,
@@ -436,14 +416,20 @@ draw_scatter_panel <- function(x0, y0, width, height, depth_df, single_copy_dept
   )
 
   legend_x <- left + 0.015
-  legend_y <- top - 0.016
+  legend_y <- top - 0.014
   legend_items <- c("primary", "haplotig", "very-low", ">1.5C", ">2C")
   legend_keys <- category_levels
+  grid.roundrect(
+    x = legend_x + 0.030,
+    y = legend_y - 0.028,
+    width = 0.068,
+    height = 0.068,
+    r = unit(0.006, "snpc"),
+    gp = gpar(fill = adjustcolor("white", alpha.f = 0.92), col = "#B8B8B8", lwd = 0.7)
+  )
   for (i in seq_along(legend_items)) {
-    row <- if (i <= 3) 0 else 1
-    col <- if (i <= 3) i - 1 else i - 4
-    lx <- legend_x + col * 0.087
-    ly <- legend_y - row * 0.023
+    lx <- legend_x
+    ly <- legend_y - (i - 1) * 0.014
     grid.points(
       x = unit(lx, "npc"),
       y = unit(ly, "npc"),
@@ -460,7 +446,27 @@ draw_scatter_panel <- function(x0, y0, width, height, depth_df, single_copy_dept
       x = lx + 0.009,
       y = ly,
       just = c("left", "center"),
-      gp = gpar(fontsize = 6.8, col = line_col)
+      gp = gpar(fontsize = 6.5, col = line_col)
+    )
+  }
+
+  contig160 <- depth_df[depth_df$contig == "contig_160", ]
+  if (nrow(contig160) == 1) {
+    px <- map_x(contig160$length_bp)
+    py <- map_y(contig160$depth_x)
+    label_x <- px + 0.020
+    label_y <- min(py + 0.060, top - 0.010)
+    grid.lines(
+      unit(c(label_x - 0.004, px), "npc"),
+      unit(c(label_y - 0.012, py + 0.004), "npc"),
+      gp = gpar(col = collapsed_col, lwd = 0.8)
+    )
+    grid.text(
+      paste0("contig_160\n370 kb @ ", fmt1(contig160$depth_x), "x"),
+      x = label_x,
+      y = label_y,
+      just = c("left", "center"),
+      gp = gpar(fontsize = 7.3, col = collapsed_col, lineheight = 0.92)
     )
   }
 }
@@ -471,8 +477,8 @@ draw_reduction_panel <- function(x0, y0, width, height, assemblies,
 
   left <- x0 + 0.105
   right <- x0 + width - 0.025
-  bottom <- y0 + 0.065
-  top <- y0 + height - 0.042
+  bottom <- y0 + 0.130
+  top <- y0 + height - 0.020
   plot_w <- right - left
   plot_h <- top - bottom
   x_max <- 110
@@ -533,15 +539,15 @@ draw_reduction_panel <- function(x0, y0, width, height, assemblies,
   grid.text(
     "Assembly span (Mb)",
     x = left + plot_w / 2,
-    y = y0 + 0.020,
+    y = y0 + 0.086,
     gp = gpar(fontsize = 8.7, col = line_col)
   )
 
   grid.roundrect(
-    x = x0 + width - 0.148,
-    y = y0 + height - 0.036,
-    width = 0.242,
-    height = 0.044,
+    x = left + plot_w / 2,
+    y = y0 + 0.044,
+    width = 0.270,
+    height = 0.050,
     r = unit(0.008, "snpc"),
     gp = gpar(fill = note_fill, col = "#D9B36A", lwd = 0.8)
   )
@@ -550,8 +556,8 @@ draw_reduction_panel <- function(x0, y0, width, height, assemblies,
       "Haplotig reduction: -", fmt_int(removed_contigs),
       " contigs, -", fmt2(span_loss_mb), " Mb"
     ),
-    x = x0 + width - 0.148,
-    y = y0 + height - 0.036,
+    x = left + plot_w / 2,
+    y = y0 + 0.044,
     gp = gpar(fontsize = 7.9, col = line_col)
   )
 }
@@ -806,7 +812,13 @@ draw_figure <- function() {
     gp = gpar(fontsize = 22, fontface = "bold", col = line_col)
   )
   grid.text(
-    "Data-derived validation of the selected T. tenax backbone, haplotig reduction, and residual high-depth repeat signal",
+    expression(
+      paste(
+        "Data-derived validation of the selected ",
+        italic("T. tenax"),
+        " backbone, haplotig reduction, and residual high-depth repeat signal"
+      )
+    ),
     x = 0.5,
     y = 0.936,
     gp = gpar(fontsize = 10.8, col = muted_col)
@@ -861,10 +873,7 @@ draw_figure <- function() {
   )
 
   grid.text(
-    paste0(
-      "Source data: contig_mean_depth.tsv, depth-class TSVs, and local FASTA/index files; ",
-      "flow-cytometry comparator from Zubacova et al. 2008 (doi:10.1016/j.molbiopara.2008.06.004)."
-    ),
+    "Source data: contig_mean_depth.tsv, depth-class TSVs, and local FASTA/index files.",
     x = 0.5,
     y = 0.035,
     gp = gpar(fontsize = 8.1, col = muted_col)

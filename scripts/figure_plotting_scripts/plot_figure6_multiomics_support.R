@@ -349,7 +349,7 @@ draw_figure <- function() {
   grid.newpage()
   grid.rect(gp = gpar(fill = "white", col = NA))
 
-  grid.text("Figure 6. Multi-omics support for the final T. tenax gene annotation",
+  grid.text(expression(paste("Figure 6. Multi-omics support for the final ", italic("T. tenax"), " gene annotation")),
             x = 0.5, y = 0.966,
             gp = gpar(fontsize = 22, fontface = "bold", col = line_col))
   grid.text(paste0(

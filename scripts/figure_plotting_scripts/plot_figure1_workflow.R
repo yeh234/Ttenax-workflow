@@ -57,11 +57,12 @@ draw_titled_box <- function(x, y, width, height, title, body,
     gp = gpar(fill = fill, col = line_col, lwd = 2.2)
   )
 
-  left_x <- x - width / 2 + 0.018
+  left_x <- x - width / 2 + width * 0.055
+  top_y <- y + height / 2
 
   grid.text(
     label = title,
-    x = left_x, y = y + height / 2 - 0.02,
+    x = left_x, y = top_y - height * 0.14,
     just = c("left", "top"),
     gp = gpar(
       fontsize = title_size,
@@ -73,7 +74,7 @@ draw_titled_box <- function(x, y, width, height, title, body,
 
   grid.text(
     label = body,
-    x = left_x, y = y + height / 2 - 0.06,
+    x = left_x, y = top_y - height * 0.37,
     just = c("left", "top"),
     gp = gpar(fontsize = body_size, col = line_col, lineheight = 1.06)
   )
@@ -131,7 +132,15 @@ panel_a_boxes <- list(
     size = 8.7
   ),
   list(
-    text = "Comparative homology mapping\nminiprot alignment of the T. vaginalis proteome\nto the polished T. tenax reference",
+    text = expression(
+      atop(
+        "Comparative homology mapping",
+        atop(
+          paste("miniprot alignment of the ", italic("T. vaginalis"), " proteome"),
+          paste("to the polished ", italic("T. tenax"), " reference")
+        )
+      )
+    ),
     size = 8.4
   ),
   list(
@@ -163,30 +172,37 @@ draw_figure <- function() {
 
   grid.text(
     "Figure 1. Study overview and data generation workflow",
-    x = 0.5, y = 0.965,
-    gp = gpar(fontsize = 22, fontface = "bold", col = line_col)
+    x = 0.5, y = 0.970,
+    gp = gpar(fontsize = 20, fontface = "bold", col = line_col)
   )
   grid.text(
-    "Workflow overview for long-read assembly, polishing, and annotation of T. tenax",
-    x = 0.5, y = 0.935,
-    gp = gpar(fontsize = 11.5, col = line_col)
+    expression(
+      paste(
+        "Workflow overview for long-read assembly, polishing, and annotation of ",
+        italic("T. tenax")
+      )
+    ),
+    x = 0.5, y = 0.946,
+    gp = gpar(fontsize = 10.8, col = line_col)
   )
 
-  grid.text("A", x = 0.045, y = 0.885,
+  grid.text("A", x = 0.055, y = 0.905,
             gp = gpar(fontsize = 20, fontface = "bold", col = line_col))
-  grid.text("Sample-to-data and validation overview", x = 0.255, y = 0.885,
-            gp = gpar(fontsize = 15, fontface = "bold", col = line_col))
+  grid.text("Sample-to-data and validation overview", x = 0.115, y = 0.905,
+            just = c("left", "center"),
+            gp = gpar(fontsize = 13.5, fontface = "bold", col = line_col))
 
-  grid.text("B", x = 0.61, y = 0.885,
+  grid.text("B", x = 0.565, y = 0.905,
             gp = gpar(fontsize = 20, fontface = "bold", col = line_col))
-  grid.text("Retained products and downstream annotation", x = 0.80, y = 0.885,
-            gp = gpar(fontsize = 15, fontface = "bold", col = line_col))
+  grid.text("Retained products and\ndownstream annotation", x = 0.615, y = 0.905,
+            just = c("left", "center"),
+            gp = gpar(fontsize = 13.0, fontface = "bold", col = line_col, lineheight = 0.95))
 
-  panel_a_x <- 0.27
-  panel_a_w <- 0.43
-  panel_a_h <- 0.045
-  panel_a_gap <- 0.0085
-  panel_a_y <- seq(0.81, by = -(panel_a_h + panel_a_gap), length.out = length(panel_a_boxes))
+  panel_a_x <- 0.295
+  panel_a_w <- 0.48
+  panel_a_h <- 0.036
+  panel_a_gap <- 0.022
+  panel_a_y <- seq(0.835, by = -(panel_a_h + panel_a_gap), length.out = length(panel_a_boxes))
 
   for (i in seq_along(panel_a_boxes)) {
     draw_round_box(
@@ -195,7 +211,7 @@ draw_figure <- function() {
       width = panel_a_w,
       height = panel_a_h,
       label = panel_a_boxes[[i]]$text,
-      fontsize = panel_a_boxes[[i]]$size,
+      fontsize = max(panel_a_boxes[[i]]$size - 0.7, 6.7),
       fill = light_fill
     )
 
@@ -209,34 +225,37 @@ draw_figure <- function() {
     }
   }
 
-  parent_x <- 0.80
-  parent_y <- 0.76
-  parent_w <- 0.31
-  parent_h <- 0.09
+  panel_b_x <- 0.770
+  panel_b_w <- 0.35
 
-  left_prod_x <- 0.69
-  left_prod_y <- 0.57
-  left_prod_w <- 0.17
-  left_prod_h <- 0.19
+  parent_x <- panel_b_x
+  parent_y <- 0.830
+  parent_w <- panel_b_w
+  parent_h <- 0.060
 
-  archived_x <- 0.89
-  archived_y <- 0.64
-  archived_w <- 0.16
-  archived_h <- 0.145
+  structural_x <- panel_b_x
+  structural_y <- 0.725
+  structural_w <- panel_b_w
+  structural_h <- 0.105
 
-  polish_x <- 0.89
-  polish_y <- 0.46
-  polish_w <- 0.16
-  polish_h <- 0.12
+  archived_x <- panel_b_x
+  archived_y <- 0.615
+  archived_w <- panel_b_w
+  archived_h <- 0.095
 
-  final_x <- 0.89
-  final_y <- 0.285
-  final_w <- 0.16
-  final_h <- 0.18
+  polish_x <- panel_b_x
+  polish_y <- 0.515
+  polish_w <- panel_b_w
+  polish_h <- 0.080
 
-  output_y <- 0.125
-  output_w <- 0.31
-  output_h <- 0.12
+  final_x <- panel_b_x
+  final_y <- 0.400
+  final_w <- panel_b_w
+  final_h <- 0.115
+
+  output_y <- 0.245
+  output_w <- panel_b_w
+  output_h <- 0.115
 
   draw_round_box(
     x = parent_x,
@@ -244,25 +263,21 @@ draw_figure <- function() {
     width = parent_w,
     height = parent_h,
     label = "Selected retained products\nand downstream annotation states",
-    fontsize = 11.3,
+    fontsize = 9.8,
     fontface = "bold",
     fill = light_fill
   )
 
   draw_arrow(
-    x0 = parent_x - 0.01, y0 = parent_y - parent_h / 2,
-    x1 = left_prod_x, y1 = left_prod_y + left_prod_h / 2
-  )
-  draw_arrow(
-    x0 = parent_x + 0.01, y0 = parent_y - parent_h / 2,
-    x1 = archived_x, y1 = archived_y + archived_h / 2
+    x0 = parent_x, y0 = parent_y - parent_h / 2,
+    x1 = structural_x, y1 = structural_y + structural_h / 2
   )
 
   draw_titled_box(
-    x = left_prod_x,
-    y = left_prod_y,
-    width = left_prod_w,
-    height = left_prod_h,
+    x = structural_x,
+    y = structural_y,
+    width = structural_w,
+    height = structural_h,
     title = "Structural backbone",
     body = paste(
       "flye_len15k/assembly.fasta",
@@ -275,9 +290,14 @@ draw_figure <- function() {
       "- comparative backbone analyses",
       sep = "\n"
     ),
-    title_size = 11.4,
-    body_size = 8.3,
+    title_size = 10.0,
+    body_size = 7.0,
     fill = note_fill
+  )
+
+  draw_arrow(
+    x0 = structural_x, y0 = structural_y - structural_h / 2,
+    x1 = archived_x, y1 = archived_y + archived_h / 2
   )
 
   draw_titled_box(
@@ -295,8 +315,8 @@ draw_figure <- function() {
       "released reference state",
       sep = "\n"
     ),
-    title_size = 10.2,
-    body_size = 7.2,
+    title_size = 9.2,
+    body_size = 6.8,
     fill = light_fill
   )
 
@@ -313,8 +333,8 @@ draw_figure <- function() {
       "strict INDEL bp 31,295 -> 26,323",
       sep = "\n"
     ),
-    title_size = 9.9,
-    body_size = 6.8,
+    title_size = 9.1,
+    body_size = 6.5,
     fill = light_fill
   )
 
@@ -336,8 +356,8 @@ draw_figure <- function() {
       "  InterProScan merge",
       sep = "\n"
     ),
-    title_size = 9.8,
-    body_size = 6.7,
+    title_size = 8.9,
+    body_size = 6.2,
     fill = final_fill
   )
 
@@ -364,18 +384,14 @@ draw_figure <- function() {
   )
 
   draw_arrow(
-    x0 = left_prod_x, y0 = left_prod_y - left_prod_h / 2,
-    x1 = parent_x - output_w / 4, y1 = output_y + output_h / 2
-  )
-  draw_arrow(
     x0 = final_x, y0 = final_y - final_h / 2,
-    x1 = parent_x + output_w / 4, y1 = output_y + output_h / 2
+    x1 = parent_x, y1 = output_y + output_h / 2
   )
 
   grid.text(
     "Structural applications",
     x = parent_x - output_w / 4, y = output_y + 0.045,
-    gp = gpar(fontsize = 11.5, fontface = "bold", col = line_col)
+    gp = gpar(fontsize = 8.7, fontface = "bold", col = line_col)
   )
   grid.text(
     paste(
@@ -385,35 +401,35 @@ draw_figure <- function() {
       sep = "\n"
     ),
     x = parent_x - output_w / 4, y = output_y - 0.005,
-    gp = gpar(fontsize = 8.8, col = line_col, lineheight = 1.08)
+    gp = gpar(fontsize = 6.2, col = line_col, lineheight = 1.02)
   )
 
   grid.text(
     "Released annotation package",
     x = parent_x + output_w / 4, y = output_y + 0.045,
-    gp = gpar(fontsize = 11.5, fontface = "bold", col = line_col)
+    gp = gpar(fontsize = 8.7, fontface = "bold", col = line_col)
   )
   grid.text(
     paste(
-      "Tt_Final_Annotation.gff3",
+      "Ttenax_annotation_v1.gff3",
       paste0(fmt_int(predicted_transcripts), " proteins and CDS"),
       paste0(fmt_int(predicted_transcripts), "-row annotation table"),
       "Tv rescue and InterPro support",
       sep = "\n"
     ),
     x = parent_x + output_w / 4, y = output_y - 0.003,
-    gp = gpar(fontsize = 8.3, col = line_col, lineheight = 1.08)
+    gp = gpar(fontsize = 5.9, col = line_col, lineheight = 1.02)
   )
 
   grid.text(
     "This schematic highlights retention of an unpolished structural backbone assembly, archival of a",
-    x = 0.5, y = 0.035,
-    gp = gpar(fontsize = 10.2, col = line_col)
+    x = 0.5, y = 0.118,
+    gp = gpar(fontsize = 8.7, col = line_col)
   )
   grid.text(
     "single-round reference, and derivation of a two-round local reference used for multi-layer annotation.",
-    x = 0.5, y = 0.014,
-    gp = gpar(fontsize = 10.2, col = line_col)
+    x = 0.5, y = 0.100,
+    gp = gpar(fontsize = 8.7, col = line_col)
   )
 
   popViewport()
@@ -422,11 +438,11 @@ draw_figure <- function() {
 png_file <- paste0(output_prefix, ".png")
 pdf_file <- paste0(output_prefix, ".pdf")
 
-png(filename = png_file, width = 16, height = 10.5, units = "in", res = 320, bg = "white")
+png(filename = png_file, width = 10.5, height = 16, units = "in", res = 320, bg = "white")
 draw_figure()
 dev.off()
 
-pdf(file = pdf_file, width = 16, height = 10.5, bg = "white", useDingbats = FALSE)
+pdf(file = pdf_file, width = 10.5, height = 16, bg = "white", useDingbats = FALSE)
 draw_figure()
 dev.off()
 

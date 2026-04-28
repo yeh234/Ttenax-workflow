@@ -185,21 +185,41 @@ draw_arrow <- function(x0, y0, x1, y1, lwd = 1.4) {
 draw_pipeline_panel <- function(x0, y0, width, height, metrics) {
   draw_panel_frame(x0, y0, width, height)
   boxes <- list(
-    paste0("GALBA structural prediction\n", fmt_int(metrics$galba_genes), " genes; ",
-           fmt_int(metrics$galba_mrna), " mRNAs"),
-    paste0("gffread extraction\n", fmt_int(metrics$proteins), " proteins and CDS sequences"),
-    paste0("EggNOG-mapper\n", fmt_int(metrics$eggnog_annotated), " annotated proteins (",
-           fmt_pct(metrics$eggnog_annotated, metrics$proteins), ")"),
-    paste0("Tv BLAST rescue\n", fmt_int(metrics$tv_rescue_unique), " / ",
-           fmt_int(metrics$unannotated), " EggNOG-unannotated hit"),
-    paste0("InterProScan domain support\n", fmt_int(metrics$interproscan_unique), " proteins with records"),
-    "Evidence merge\nEggNOG + Tv rescue + InterPro + GO/KEGG",
-    paste0("Final master table\n", fmt_int(metrics$final_rows), " transcript-level rows")
+    list(
+      title = "GALBA structural prediction",
+      detail = paste0(fmt_int(metrics$galba_genes), " genes; ", fmt_int(metrics$galba_mrna), " mRNAs")
+    ),
+    list(
+      title = "gffread extraction",
+      detail = paste0(fmt_int(metrics$proteins), " proteins and CDS sequences")
+    ),
+    list(
+      title = "EggNOG-mapper",
+      detail = paste0(fmt_int(metrics$eggnog_annotated), " annotated proteins (",
+                      fmt_pct(metrics$eggnog_annotated, metrics$proteins), ")")
+    ),
+    list(
+      title = "Tv BLAST rescue",
+      detail = paste0(fmt_int(metrics$tv_rescue_unique), " / ",
+                      fmt_int(metrics$unannotated), " EggNOG-unannotated hit")
+    ),
+    list(
+      title = "InterProScan domain support",
+      detail = paste0(fmt_int(metrics$interproscan_unique), " proteins with records")
+    ),
+    list(
+      title = "Evidence merge",
+      detail = "EggNOG + Tv rescue + InterPro + GO/KEGG"
+    ),
+    list(
+      title = "Final master table",
+      detail = paste0(fmt_int(metrics$final_rows), " transcript-level rows")
+    )
   )
 
   box_w <- width - 0.060
-  box_h <- 0.0315
-  gap <- 0.0060
+  box_h <- 0.0225
+  gap <- 0.0160
   top_y <- y0 + height - 0.030
   cx <- x0 + width / 2
   ys <- top_y - seq(0, by = box_h + gap, length.out = length(boxes))
@@ -211,8 +231,9 @@ draw_pipeline_panel <- function(x0, y0, width, height, metrics) {
     grid.roundrect(x = cx, y = ys[[i]], width = box_w, height = box_h,
                    r = unit(0.010, "snpc"),
                    gp = gpar(fill = fill, col = line_col, lwd = 1.2))
-    grid.text(boxes[[i]], x = cx, y = ys[[i]],
-              gp = gpar(fontsize = 7.35, col = line_col, lineheight = 0.93))
+    grid.text(bquote(bold(.(boxes[[i]]$title)) ~ .(boxes[[i]]$detail)),
+              x = cx, y = ys[[i]],
+              gp = gpar(fontsize = 7.45, col = line_col))
     if (i < length(boxes)) {
       draw_arrow(cx, ys[[i]] - box_h / 2, cx, ys[[i + 1]] + box_h / 2)
     }
@@ -221,8 +242,8 @@ draw_pipeline_panel <- function(x0, y0, width, height, metrics) {
 
 draw_horizontal_bar_panel <- function(x0, y0, width, height, counts_df, total) {
   draw_panel_frame(x0, y0, width, height)
-  left <- x0 + 0.145
-  right <- x0 + width - 0.030
+  left <- x0 + 0.120
+  right <- x0 + width - 0.055
   bottom <- y0 + 0.055
   top <- y0 + height - 0.035
   plot_w <- right - left
@@ -286,8 +307,8 @@ draw_stacked_bar <- function(x0, y, width, height, values, colors, labels,
 draw_completeness_panel <- function(x0, y0, width, height, busco_df,
                                     tv_mapping, tv_reference_total) {
   draw_panel_frame(x0, y0, width, height)
-  left <- x0 + 0.120
-  right <- x0 + width - 0.035
+  left <- x0 + 0.105
+  right <- x0 + width - 0.055
   bar_w <- right - left
 
   grid.text("BUSCO eukaryota_odb12 summary", x = x0 + width / 2, y = y0 + height - 0.027,
@@ -354,9 +375,9 @@ draw_completeness_panel <- function(x0, y0, width, height, busco_df,
 
 draw_naming_rescue_panel <- function(x0, y0, width, height, naming_df, rescue_df, total) {
   draw_panel_frame(x0, y0, width, height)
-  grid.text("Final product naming sources", x = x0 + width * 0.245, y = y0 + height - 0.030,
+  grid.text("Final product naming sources", x = x0 + width * 0.225, y = y0 + height - 0.030,
             gp = gpar(fontsize = 9.0, fontface = "bold", col = line_col))
-  grid.text("EggNOG-unannotated fraction", x = x0 + width * 0.765, y = y0 + height - 0.030,
+  grid.text("EggNOG-unannotated fraction", x = x0 + width * 0.735, y = y0 + height - 0.030,
             gp = gpar(fontsize = 9.0, fontface = "bold", col = line_col))
 
   stack_x <- x0 + 0.035
@@ -396,8 +417,8 @@ draw_naming_rescue_panel <- function(x0, y0, width, height, naming_df, rescue_df
             x = note_x, y = y0 + 0.057,
             gp = gpar(fontsize = 7.2, col = line_col, lineheight = 0.95))
 
-  bar_left <- x0 + width * 0.650
-  bar_right <- x0 + width - 0.035
+  bar_left <- x0 + width * 0.610
+  bar_right <- x0 + width - 0.065
   bar_w <- bar_right - bar_left
   ys <- seq(y0 + height - 0.078, y0 + 0.075, length.out = nrow(rescue_df))
   for (i in seq_len(nrow(rescue_df))) {
