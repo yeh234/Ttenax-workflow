@@ -121,7 +121,7 @@ draw_horizontal_bars <- function(x0, y0, width, height, title, values, labels,
 
   grid.rect(x = x0, y = y0, width = width, height = height,
             just = c("left", "bottom"),
-            gp = gpar(fill = "#FFFFFF", col = line_col, lwd = 1.0))
+            gp = gpar(fill = "#FFFFFF", col = NA, lwd = 1.0))
   grid.lines(unit(c(plot_x0, plot_x1), "npc"), unit(c(axis_y, axis_y), "npc"),
              gp = gpar(col = axis_col, lwd = 0.9))
   grid.lines(unit(c(plot_x0, plot_x0), "npc"), unit(c(axis_y, y0 + height - top_pad), "npc"),
@@ -196,7 +196,7 @@ draw_vertical_bars <- function(x0, y0, width, height, title, values, labels,
                                y_label, max_value, tick_step, value_formatter) {
   grid.rect(x = x0, y = y0, width = width, height = height,
             just = c("left", "bottom"),
-            gp = gpar(fill = "#FFFFFF", col = line_col, lwd = 1.0))
+            gp = gpar(fill = "#FFFFFF", col = NA, lwd = 1.0))
   grid.text(title, x = x0 + width / 2, y = y0 + height + 0.030,
             gp = gpar(fontsize = 12.0, col = line_col))
 
@@ -454,11 +454,6 @@ draw_figure <- function() {
     lineheight = 0.98
   )
 
-  grid.text(
-    "Source data: local Flye FASTA/index files, depth-screen TSVs, haplotig IDs, polished FASTA indexes, and polish_round_qc_summary.tsv.",
-    x = 0.5, y = 0.033,
-    gp = gpar(fontsize = 8.2, col = muted_col)
-  )
 }
 
 png(paste0(output_prefix, ".png"), width = 16, height = 10.5, units = "in", res = 300)

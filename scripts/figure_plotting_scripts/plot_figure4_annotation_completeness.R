@@ -173,7 +173,7 @@ draw_panel_title <- function(letter, title, x, y) {
 draw_panel_frame <- function(x0, y0, width, height) {
   grid.rect(x = x0, y = y0, width = width, height = height,
             just = c("left", "bottom"),
-            gp = gpar(fill = panel_fill, col = line_col, lwd = 1.0))
+            gp = gpar(fill = panel_fill, col = NA, lwd = 1.0))
 }
 
 draw_arrow <- function(x0, y0, x1, y1, lwd = 1.4) {
@@ -650,11 +650,6 @@ draw_figure <- function() {
   draw_completeness_panel(0.055, 0.155, 0.400, 0.300, busco, tv_mapping, tv_reference_total)
   draw_naming_rescue_panel(0.545, 0.155, 0.400, 0.300, naming_df, rescue_df, protein_count)
 
-  grid.text(
-    "Source data: GALBA GFF3, gffread FASTA outputs, EggNOG ID sets, Tv homology searches, BUSCO summaries, InterProScan TSV, and final master annotation table.",
-    x = 0.5, y = 0.035,
-    gp = gpar(fontsize = 8.0, col = muted_col)
-  )
 }
 
 png(paste0(output_prefix, ".png"), width = 16, height = 10.5, units = "in", res = 300)

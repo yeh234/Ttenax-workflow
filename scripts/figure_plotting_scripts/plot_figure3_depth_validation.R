@@ -132,7 +132,7 @@ draw_panel_frame <- function(x0, y0, width, height) {
     width = width,
     height = height,
     just = c("left", "bottom"),
-    gp = gpar(fill = panel_fill, col = line_col, lwd = 1.0)
+    gp = gpar(fill = panel_fill, col = NA, lwd = 1.0)
   )
 }
 
@@ -872,12 +872,6 @@ draw_figure <- function() {
     flow_sd = flow_cytometry_sd_mb
   )
 
-  grid.text(
-    "Source data: contig_mean_depth.tsv, depth-class TSVs, and local FASTA/index files.",
-    x = 0.5,
-    y = 0.035,
-    gp = gpar(fontsize = 8.1, col = muted_col)
-  )
 }
 
 png(paste0(output_prefix, ".png"), width = 16, height = 10.5, units = "in", res = 300)

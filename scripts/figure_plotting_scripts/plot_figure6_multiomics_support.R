@@ -95,7 +95,7 @@ draw_panel_title <- function(letter, title, x, y) {
 draw_panel_frame <- function(x0, y0, width, height) {
   grid.rect(x = x0, y = y0, width = width, height = height,
             just = c("left", "bottom"),
-            gp = gpar(fill = panel_fill, col = line_col, lwd = 1.0))
+            gp = gpar(fill = panel_fill, col = NA, lwd = 1.0))
 }
 
 draw_axes <- function(left, bottom, right, top) {
@@ -379,11 +379,6 @@ draw_figure <- function() {
                        x_label = "Number of genes", label_total = NULL,
                        label_font = 8.2)
 
-  grid.text(
-    "DRS, direct RNA sequencing; SR cDNA, short-read cDNA; LR cDNA, Nanopore long-read cDNA. Primary count mode: featureCounts -s 0.",
-    x = 0.5, y = 0.035,
-    gp = gpar(fontsize = 8.0, col = muted_col)
-  )
 }
 
 png(paste0(output_prefix, ".png"), width = 16, height = 10.5, units = "in", res = 300)
