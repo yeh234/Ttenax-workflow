@@ -258,13 +258,13 @@ class_order <- c(
   "three_RNA_and_high_confidence_proteomics_supported"
 )
 class_labels <- c(
-  "No detected\nomics support",
+  "No detected omics support",
   "Single RNA",
   "Two RNA",
   "Three RNA only",
-  "RNA + proteomics",
-  "Three RNA +\nproteomics",
-  "Three RNA +\n>=2 unique peptides"
+  "Non-all-three RNA + proteomics",
+  "Three RNA + proteomics",
+  "Three RNA + >=2 unique peptides"
 )
 class_counts <- table(factor(matrix$Evidence_class, levels = class_order))
 class_df <- data.frame(
@@ -277,12 +277,12 @@ class_df <- data.frame(
 
 proteomics_df <- data.frame(
   label = c(
-    ">=1 unique\npeptide",
-    ">=2 unique\npeptides",
-    ">=3 unique\npeptides",
-    ">=5 unique\npeptides",
-    "Three RNA +\nproteomics",
-    "Three RNA +\n>=2 unique peptides"
+    ">=1 unique peptide",
+    ">=2 unique peptides",
+    ">=3 unique peptides",
+    ">=5 unique peptides",
+    "Three RNA + proteomics",
+    "Three RNA + >=2 unique peptides"
   ),
   value = c(
     sum(yes(matrix$Proteomics_support)),

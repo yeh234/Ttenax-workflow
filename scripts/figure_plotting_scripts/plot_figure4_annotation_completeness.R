@@ -375,12 +375,12 @@ draw_completeness_panel <- function(x0, y0, width, height, busco_df,
 
 draw_naming_rescue_panel <- function(x0, y0, width, height, naming_df, rescue_df, total) {
   draw_panel_frame(x0, y0, width, height)
-  grid.text("Final product naming sources", x = x0 + width * 0.225, y = y0 + height - 0.030,
+  grid.text("Final product naming sources", x = x0 + width * 0.195, y = y0 + height - 0.030,
             gp = gpar(fontsize = 9.0, fontface = "bold", col = line_col))
   grid.text("EggNOG-unannotated fraction", x = x0 + width * 0.735, y = y0 + height - 0.030,
             gp = gpar(fontsize = 9.0, fontface = "bold", col = line_col))
 
-  stack_x <- x0 + 0.035
+  stack_x <- x0 + 0.020
   stack_y <- y0 + height - 0.083
   stack_w <- width * 0.385
   stack_h <- 0.040
@@ -399,17 +399,19 @@ draw_naming_rescue_panel <- function(x0, y0, width, height, naming_df, rescue_df
   }
 
   legend_y <- y0 + height - 0.143
+  legend_row_gap <- 0.018
+  legend_col_gap <- 0.100
   for (i in seq_len(nrow(naming_df))) {
-    lx <- stack_x + ((i - 1) %% 2) * 0.155
-    ly <- legend_y - floor((i - 1) / 2) * 0.024
-    grid.points(unit(lx, "npc"), unit(ly, "npc"), pch = 15, size = unit(0.10, "char"),
+    lx <- stack_x + ((i - 1) %% 2) * legend_col_gap
+    ly <- legend_y - floor((i - 1) / 2) * legend_row_gap
+    grid.points(unit(lx, "npc"), unit(ly, "npc"), pch = 15, size = unit(0.16, "char"),
                 gp = gpar(col = naming_df$color[[i]]))
     grid.text(paste0(naming_df$source[[i]], ": ", fmt_int(naming_df$count[[i]])),
               x = lx + 0.010, y = ly, just = c("left", "center"),
               gp = gpar(fontsize = 7.0, col = line_col))
   }
 
-  note_x <- x0 + width * 0.225
+  note_x <- x0 + width * 0.195
   grid.roundrect(x = note_x, y = y0 + 0.057, width = width * 0.38, height = 0.054,
                  r = unit(0.008, "snpc"),
                  gp = gpar(fill = note_fill, col = "#D9B36A", lwd = 0.8))
@@ -420,6 +422,7 @@ draw_naming_rescue_panel <- function(x0, y0, width, height, naming_df, rescue_df
   bar_left <- x0 + width * 0.610
   bar_right <- x0 + width - 0.065
   bar_w <- bar_right - bar_left
+  value_x <- x0 + width - 0.006
   ys <- seq(y0 + height - 0.078, y0 + 0.075, length.out = nrow(rescue_df))
   for (i in seq_len(nrow(rescue_df))) {
     grid.text(rescue_df$label[[i]], x = bar_left - 0.012, y = ys[[i]],
@@ -432,12 +435,11 @@ draw_naming_rescue_panel <- function(x0, y0, width, height, naming_df, rescue_df
               width = bar_w * rescue_df$count[[i]] / rescue_df$total[[i]],
               height = 0.022, just = c("left", "center"),
               gp = gpar(fill = rescue_df$color[[i]], col = NA))
-    grid.text(paste0(fmt_int(rescue_df$count[[i]]), " (",
-                     fmt_pct(rescue_df$count[[i]], rescue_df$total[[i]]), ")"),
-              x = min(bar_left + bar_w * rescue_df$count[[i]] / rescue_df$total[[i]] + 0.006,
-                      bar_right - 0.002),
+    pct_label <- sub("\\.0%", "%", fmt_pct(rescue_df$count[[i]], rescue_df$total[[i]]))
+    grid.text(paste0(fmt_int(rescue_df$count[[i]]), " (", pct_label, ")"),
+              x = value_x,
               y = ys[[i]],
-              just = c("left", "center"),
+              just = c("right", "center"),
               gp = gpar(fontsize = 7.0, col = line_col))
   }
 }

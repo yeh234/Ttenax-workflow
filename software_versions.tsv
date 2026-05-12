@@ -1,0 +1,35 @@
+tool	version	database/model	purpose
+Dorado (genomic DNA)	1.3.0+6ea400189	dna_r10.4.1_e8.2_400bps_sup@v5.2.0	ONT genomic DNA basecalling/polishing
+Dorado (direct RNA)	0.9.6	rna002_70bps_hac@v3	Nanopore direct RNA basecalling
+Dorado (long-read cDNA)	0.9.6	dna_r9.4.1_e8_sup@v3.6	Nanopore long-read cDNA basecalling
+Flye	v2.9.6	NA	Long-read genome assembly
+SeqKit	v2.10.0	NA	FASTA/FASTQ sequence statistics and filtering
+minimap2	v2.30-r1287	NA	Nanopore genomic, DRS, and long-read cDNA alignment
+miniprot	0.18-r281	TrichDB release 68 T. vaginalis G3 proteome	Lineage-aware proteome-to-genome mapping
+samtools (genome assembly workflow)	v1.23.1	NA	SAM/BAM processing, sorting, and indexing
+samtools (RNA/cDNA alignment workflow)	v1.20	htslib v1.20	BAM processing, sorting, indexing, and alignment summaries
+QUAST	v5.3.0	NA	Assembly quality assessment
+BUSCO	v6.0.0	eukaryota_odb12	Genome completeness assessment
+BUSCO dataset	eukaryota_odb12	OrthoDB 12.0; dataset version 01	BUSCO eukaryotic lineage dataset
+GALBA	v1.0.11	TrichDB v68 proteins	Protein-informed structural gene annotation
+gffread	v0.12.9	NA	Extract predicted CDS and protein sequences from GALBA GFF3
+tRNAscan-SE	v2.0.12	NA	tRNA prediction
+EggNOG-mapper	v2.1.13	Expected eggNOG DB v5.0.2; installed DB version unknown	Orthology-based functional annotation
+EggNOG database	v5.0.2 expected; installed DB version unknown	eggnog.db not found in annotation environment	EggNOG-mapper annotation database
+DIAMOND	v2.1.21	NA	Fast protein similarity search backend for EggNOG-mapper
+BLAST+	v2.12.0+	TrichDB v68	Homology search against protein/reference databases
+InterProScan	v6.0.0	InterPro v108.0; Pfam v38.1; SignalP v6.0	Protein domain, family, and signal peptide annotation
+InterPro/Pfam database release	InterPro v108.0; Pfam v38.1	InterProScan6 database release	Domain and family database release used by InterProScan
+SignalP	v6.0	InterProScan6 integrated analysis	Signal peptide prediction
+Nextflow	v25.10.3	InterProScan6 revision 82e660a17c	Workflow engine used to launch InterProScan6
+Infernal	v1.1.5	NA	Covariance-model RNA search
+Rfam	v15.1	Rfam.cm.gz from Rfam CURRENT FTP	RNA family covariance-model database
+STAR	v2.7.11b	NA	Illumina short-read cDNA alignment
+Subread/featureCounts	v2.1.1	NA	Gene-level read or fragment assignment
+fastp	v1.3.2	NA	Illumina read trimming and QC
+NanoPlot	v1.46.2 (DRS hac); v1.20.0 (cDNA sup)	NA	Nanopore read-length and quality QC
+Python	3.13.13 (QUAST); 3.10.10 (NanoPlot DRS); 3.6.10 (NanoPlot cDNA)	NA	Tool/runtime environments captured in logs
+R / R packages	R 4.4.3; ggplot2 3.5.2; gridExtra 2.3	r-base >=4.3 listed in workflow env YAML	Figure plotting and summary visualization
+Proteome Discoverer	v2.3	NA	Proteomics data processing
+Mascot	v2.5	NA	Proteomics database search
+TrichDB	v68	T. vaginalis G3 database	Cross-species protein reference and homology annotation database

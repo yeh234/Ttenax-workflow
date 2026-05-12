@@ -343,7 +343,7 @@ draw_figure <- function() {
     y = final_y,
     width = final_w,
     height = final_h,
-    title = "Final local annotation reference",
+    title = "Final annotation-oriented reference",
     body = paste(
       "dorado_polish_gpu1/",
       "draft.polish2.bs6.fasta",
@@ -422,13 +422,13 @@ draw_figure <- function() {
   )
 
   grid.text(
-    "This schematic highlights retention of an unpolished structural backbone assembly, archival of a",
-    x = 0.5, y = 0.118,
+    "This schematic highlights retention of a structural backbone, archival of a single-round polished reference,",
+    x = 0.5, y = 0.150,
     gp = gpar(fontsize = 8.7, col = line_col)
   )
   grid.text(
-    "single-round reference, and derivation of a two-round local reference used for multi-layer annotation.",
-    x = 0.5, y = 0.100,
+    "and derivation of a two-round polished annotation-oriented reference used for multi-layer annotation.",
+    x = 0.5, y = 0.132,
     gp = gpar(fontsize = 8.7, col = line_col)
   )
 

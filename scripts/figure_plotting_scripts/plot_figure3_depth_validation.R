@@ -689,7 +689,7 @@ draw_genome_size_panel <- function(x0, y0, width, height, assembly_range,
     gp = gpar(fill = note_fill, col = "#D9B36A", lwd = 0.8)
   )
   grid.text(
-    "Primary span is supported near 100-109 Mb; the remaining gap points to unresolved/collapsed repeats.",
+    "Primary span is supported near 100-109 Mb; the remaining difference suggests unresolved or collapsed repeats.",
     x = x0 + width / 2,
     y = y0 + 0.025,
     gp = gpar(fontsize = 7.7, col = line_col)

@@ -314,7 +314,7 @@ draw_figure <- function() {
   grid.newpage()
   grid.rect(gp = gpar(fill = "white", col = NA))
 
-  grid.text("Figure 2. Assembly strategy comparison and selection of final reference assemblies",
+  grid.text("Figure 2. Assembly strategy comparison and selection of retained genome products",
             x = 0.5, y = 0.966,
             gp = gpar(fontsize = 22, fontface = "bold", col = line_col))
   grid.text("Data-derived summary of assembly span, contiguity, fragmentation, haplotig reduction, and polishing improvement",
@@ -354,9 +354,12 @@ draw_figure <- function() {
     lineheight = 1.05
   )
 
-  draw_panel_title("B", "Backbone and annotation-oriented assembly products", 0.035, 0.450)
+  lower_panel_shift <- 0.020
 
-  b_y <- 0.305
+  draw_panel_title("B", "Backbone and annotation-oriented assembly products",
+                   0.035, 0.450 - lower_panel_shift)
+
+  b_y <- 0.305 - lower_panel_shift
   b_h <- 0.120
   b_w <- 0.177
   x1 <- 0.145
@@ -386,7 +389,7 @@ draw_figure <- function() {
   )
   draw_round_box(
     x3, b_y, b_w, b_h,
-    "Final reference",
+    "Final annotation-oriented reference",
     paste0(
       "draft.polish2.bs6.fasta\n",
       fmt2(polish2$span_mb), " Mb; ", fmt_int(polish2$contigs), " contigs\n",
@@ -400,23 +403,24 @@ draw_figure <- function() {
   draw_arrow(x2 + b_w / 2 + 0.005, b_y, x3 - b_w / 2 - 0.005, b_y)
 
   draw_note_box(
-    x = 0.345, y = 0.105, width = 0.505, height = 0.074,
+    x = 0.345, y = 0.105 - lower_panel_shift, width = 0.505, height = 0.074,
     paste0(
       "Depth screen: ", fmt1(single_copy_depth), "x single-copy depth; ",
       fmt2(estimated_genome_mb), " Mb genome-size estimate.\n",
       fmt_int(haplotig_removed), " haplotig-like and ",
       fmt_int(very_low_contigs), " very-low-depth contigs flagged.\n",
-      "Polish2 was retained as the final local working reference."
+      "Polish2 was retained as the final two-round\nannotation-oriented reference."
     ),
     title_size = 8.2,
     body_size = 7.1,
     lineheight = 0.98
   )
 
-  draw_panel_title("C", "ORF-oriented polishing comparison", 0.690, 0.450)
+  draw_panel_title("C", "ORF-oriented polishing comparison",
+                   0.690, 0.450 - lower_panel_shift)
 
   draw_vertical_bars(
-    x0 = 0.675, y0 = 0.185, width = 0.145, height = 0.175,
+    x0 = 0.675, y0 = 0.185 - lower_panel_shift, width = 0.145, height = 0.175,
     title = "Strict INDEL count",
     values = strict_counts,
     labels = c("polish1", "polish2"),
@@ -427,7 +431,7 @@ draw_figure <- function() {
   )
 
   draw_vertical_bars(
-    x0 = 0.845, y0 = 0.185, width = 0.140, height = 0.175,
+    x0 = 0.845, y0 = 0.185 - lower_panel_shift, width = 0.140, height = 0.175,
     title = "Strict INDEL bp",
     values = strict_bp,
     labels = c("polish1", "polish2"),
@@ -442,7 +446,7 @@ draw_figure <- function() {
   bp_drop_pct <- bp_drop / strict_bp[[1]] * 100
 
   draw_note_box(
-    x = 0.830, y = 0.095, width = 0.285, height = 0.080,
+    x = 0.830, y = 0.095 - lower_panel_shift, width = 0.285, height = 0.080,
     paste0(
       "Polish2 retained ", fmt_pct(mapped_pct),
       " mapped reads while\nreducing strict INDEL burden.\n",
