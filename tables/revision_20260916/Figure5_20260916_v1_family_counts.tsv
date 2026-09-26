@@ -1,0 +1,5 @@
+family	tv_blast_text_hit_rows	tv_blast_text_unique_queries	tv_rescue_text_hit_rows	tv_rescue_text_unique_queries	interproscan_domain_proteins
+BspA	21	21	20	20	319
+LRR non-BspA	128	98	33	30	759
+Armadillo	518	509	483	472	22
+Kinase	996	961	33	33	1293

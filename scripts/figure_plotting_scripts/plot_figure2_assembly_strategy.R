@@ -4,8 +4,10 @@ args <- commandArgs(trailingOnly = TRUE)
 output_prefix <- if (length(args) >= 1) {
   args[[1]]
 } else {
-  "figures/Tt_Figure2_assembly_strategy_v2"
+  "figures/Tt_Figure2_assembly_strategy_v20260916.1"
 }
+
+script_version <- "20260916.1"
 
 dir.create(dirname(output_prefix), recursive = TRUE, showWarnings = FALSE)
 
@@ -154,24 +156,6 @@ draw_horizontal_bars <- function(x0, y0, width, height, title, values, labels,
   }
 }
 
-draw_note_box <- function(x, y, width, height, body, title = "Comparison result:",
-                          title_size = 8.6, body_size = 8.0,
-                          lineheight = 1.05) {
-  grid.roundrect(x = x, y = y, width = width, height = height,
-                 r = unit(0.010, "snpc"),
-                 gp = gpar(fill = note_fill, col = "#D9B36A", lwd = 0.8))
-  grid.text(
-    title,
-    x = x, y = y + height * 0.30,
-    gp = gpar(fontsize = title_size, fontface = "bold", col = line_col)
-  )
-  grid.text(
-    body,
-    x = x, y = y - height * 0.10,
-    gp = gpar(fontsize = body_size, col = line_col, lineheight = lineheight)
-  )
-}
-
 draw_round_box <- function(x, y, width, height, title, body,
                            title_size = 11.0, body_size = 8.6,
                            fill = box_fill, lwd = 1.4) {
@@ -313,13 +297,7 @@ write.table(depth_out, paste0(output_prefix, "_depth_metrics.tsv"),
 draw_figure <- function() {
   grid.newpage()
   grid.rect(gp = gpar(fill = "white", col = NA))
-
-  grid.text("Figure 2. Assembly strategy comparison and selection of retained genome products",
-            x = 0.5, y = 0.966,
-            gp = gpar(fontsize = 22, fontface = "bold", col = line_col))
-  grid.text("Data-derived summary of assembly span, contiguity, fragmentation, haplotig reduction, and polishing improvement",
-            x = 0.5, y = 0.935,
-            gp = gpar(fontsize = 10.5, col = muted_col))
+  pushViewport(viewport(x = 0.5, y = 0.45, width = 1.04, height = 1.34))
 
   draw_panel_title("A", "Assembly strategy comparison", 0.035, 0.880)
 
@@ -340,18 +318,6 @@ draw_figure <- function() {
     title = "Fragmentation", values = assemblies$contigs, labels = assemblies$label,
     selected = assemblies$selected, axis_title = "Contigs",
     value_formatter = fmt_int, tick_step = 750, label_left = FALSE
-  )
-
-  draw_note_box(
-    x = 0.500, y = 0.493, width = 0.720, height = 0.056,
-    paste0(
-      "The >=15 kb assembly was retained as the structural backbone.\n",
-      fmt2(backbone$span_mb), " Mb, ", fmt_int(backbone$contigs),
-      " contigs, N50 ", fmt1(backbone$n50_kb), " kb."
-    ),
-    title_size = 8.6,
-    body_size = 8.2,
-    lineheight = 1.05
   )
 
   lower_panel_shift <- 0.020
@@ -402,20 +368,6 @@ draw_figure <- function() {
   draw_arrow(x1 + b_w / 2 + 0.005, b_y, x2 - b_w / 2 - 0.005, b_y)
   draw_arrow(x2 + b_w / 2 + 0.005, b_y, x3 - b_w / 2 - 0.005, b_y)
 
-  draw_note_box(
-    x = 0.345, y = 0.105 - lower_panel_shift, width = 0.505, height = 0.074,
-    paste0(
-      "Depth screen: ", fmt1(single_copy_depth), "x single-copy depth; ",
-      fmt2(estimated_genome_mb), " Mb genome-size estimate.\n",
-      fmt_int(haplotig_removed), " haplotig-like and ",
-      fmt_int(very_low_contigs), " very-low-depth contigs flagged.\n",
-      "Polish2 was retained as the final two-round\nannotation-oriented reference."
-    ),
-    title_size = 8.2,
-    body_size = 7.1,
-    lineheight = 0.98
-  )
-
   draw_panel_title("C", "ORF-oriented polishing comparison",
                    0.690, 0.450 - lower_panel_shift)
 
@@ -445,19 +397,7 @@ draw_figure <- function() {
   bp_drop <- strict_bp[[1]] - strict_bp[[2]]
   bp_drop_pct <- bp_drop / strict_bp[[1]] * 100
 
-  draw_note_box(
-    x = 0.830, y = 0.095 - lower_panel_shift, width = 0.285, height = 0.080,
-    paste0(
-      "Polish2 retained ", fmt_pct(mapped_pct),
-      " mapped reads while\nreducing strict INDEL burden.\n",
-      "Strict INDELs -", fmt_int(indel_drop),
-      "; strict INDEL bp -", fmt_int(bp_drop), " (", fmt1(bp_drop_pct), "%)."
-    ),
-    title_size = 8.2,
-    body_size = 7.1,
-    lineheight = 0.98
-  )
-
+  popViewport()
 }
 
 png(paste0(output_prefix, ".png"), width = 16, height = 10.5, units = "in", res = 300)

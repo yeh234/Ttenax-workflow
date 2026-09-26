@@ -4,8 +4,10 @@ args <- commandArgs(trailingOnly = TRUE)
 output_prefix <- if (length(args) >= 1) {
   args[[1]]
 } else {
-  "figures/Tt_Figure1_workflow_v7"
+  "figures/Tt_Figure1_workflow_v20260916.1"
 }
+
+script_version <- "20260916.1"
 
 dir.create(dirname(output_prefix), recursive = TRUE, showWarnings = FALSE)
 
@@ -165,26 +167,10 @@ panel_a_boxes <- list(
 
 draw_figure <- function() {
   grid.newpage()
-  pushViewport(viewport(x = 0, y = 0, width = 1, height = 1,
-                        just = c("left", "bottom")))
+  # v20260916.1: use the former heading/footer space for the panel artwork.
+  pushViewport(viewport(x = 0.5, y = 0.44, width = 1.04, height = 1.30))
 
   grid.rect(gp = gpar(fill = panel_fill, col = NA))
-
-  grid.text(
-    "Figure 1. Study overview and data generation workflow",
-    x = 0.5, y = 0.970,
-    gp = gpar(fontsize = 20, fontface = "bold", col = line_col)
-  )
-  grid.text(
-    expression(
-      paste(
-        "Workflow overview for long-read assembly, polishing, and annotation of ",
-        italic("T. tenax")
-      )
-    ),
-    x = 0.5, y = 0.946,
-    gp = gpar(fontsize = 10.8, col = line_col)
-  )
 
   grid.text("A", x = 0.055, y = 0.905,
             gp = gpar(fontsize = 20, fontface = "bold", col = line_col))
@@ -419,17 +405,6 @@ draw_figure <- function() {
     ),
     x = parent_x + output_w / 4, y = output_y - 0.003,
     gp = gpar(fontsize = 5.9, col = line_col, lineheight = 1.02)
-  )
-
-  grid.text(
-    "This schematic highlights retention of a structural backbone, archival of a single-round polished reference,",
-    x = 0.5, y = 0.150,
-    gp = gpar(fontsize = 8.7, col = line_col)
-  )
-  grid.text(
-    "and derivation of a two-round polished annotation-oriented reference used for multi-layer annotation.",
-    x = 0.5, y = 0.132,
-    gp = gpar(fontsize = 8.7, col = line_col)
   )
 
   popViewport()

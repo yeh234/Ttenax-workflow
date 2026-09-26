@@ -4,8 +4,10 @@ args <- commandArgs(trailingOnly = TRUE)
 output_prefix <- if (length(args) >= 1) {
   args[[1]]
 } else {
-  "figures/Tt_Figure6_multiomics_support_v1"
+  "figures/Tt_Figure6_multiomics_support_v20260916.1"
 }
+
+script_version <- "20260916.1"
 
 dir.create(dirname(output_prefix), recursive = TRUE, showWarnings = FALSE)
 
@@ -348,16 +350,7 @@ write.table(proteomics_summary, paste0(output_prefix, "_proteomics_summary.tsv")
 draw_figure <- function() {
   grid.newpage()
   grid.rect(gp = gpar(fill = "white", col = NA))
-
-  grid.text(expression(paste("Figure 6. Multi-omics support for the final ", italic("T. tenax"), " gene annotation")),
-            x = 0.5, y = 0.966,
-            gp = gpar(fontsize = 22, fontface = "bold", col = line_col))
-  grid.text(paste0(
-    "RNA and proteomics evidence across ", fmt_int(total_genes),
-    " predicted genes; counts are annotation-support evidence, not differential expression"
-  ),
-  x = 0.5, y = 0.936,
-  gp = gpar(fontsize = 10.4, col = muted_col))
+  pushViewport(viewport(x = 0.5, y = 0.45, width = 1.04, height = 1.34))
 
   draw_panel_title("A", "RNA dataset alignment to final genome", 0.045, 0.888)
   draw_panel_title("B", "Gene support by RNA evidence", 0.535, 0.888)
@@ -378,7 +371,7 @@ draw_figure <- function() {
                        x_max = 540, x_step = 100,
                        x_label = "Number of genes", label_total = NULL,
                        label_font = 8.2)
-
+  popViewport()
 }
 
 png(paste0(output_prefix, ".png"), width = 16, height = 10.5, units = "in", res = 300)

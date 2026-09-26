@@ -55,4 +55,6 @@ compact GitHub repository.
 
 ## Versioning
 
-Use the `v1` suffix for files inside the annotation release and the semantic version `v1.0.0` for archived GitHub/Zenodo releases.
+Use the `v1` suffix for files inside the annotation release. The archived GitHub/Zenodo release remains `v1.0.0`.
+
+The September 2026 revision on `main` uses plotting-script version `20260916.1` and the updated workbook name `Supplementary_Tables_S1-S7_20260926.xlsx`. Its exported figure metrics retain the dated `Figure*_20260916_v1_*.tsv` filenames because their contents and plotting version are unchanged. Do not interpret the script version or these filename suffixes as a newly published Zenodo release. No v1.1 release tag has been created for this synchronization.

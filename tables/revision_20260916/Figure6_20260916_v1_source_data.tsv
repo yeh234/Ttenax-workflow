@@ -1,0 +1,22 @@
+panel	metric	label	value	total	percent	source
+A	mapping_rate_percent	DRS	90.97	1803523	90.97	Express/qc/Tt_DRS_merged.hac.genome.flagstat.txt
+A	mapping_rate_percent	SR cDNA	89.39	37505899	89.39	Express/SR_aln/Tt_HVFMLDSX2.Log.final.out
+A	mapping_rate_percent	LR cDNA	95.86	10626042	95.86	Express/LRcDNA_qc/Tt_cDNA_merged.sup.Q10.min200.max50k.genome.flagstat.txt
+B	RNA_supported_genes	DRS	18574	33725	55.0748702742772	Express/multiomics_gene_evidence_matrix.tsv
+B	RNA_supported_genes	SR cDNA	19540	33725	57.939214232765	Express/multiomics_gene_evidence_matrix.tsv
+B	RNA_supported_genes	LR cDNA	21143	33725	62.6923647146034	Express/multiomics_gene_evidence_matrix.tsv
+B	RNA_supported_genes	Any RNA	22302	33725	66.1289844329133	Express/multiomics_gene_evidence_matrix.tsv
+B	RNA_supported_genes	All 3 RNA	17671	33725	52.3973313565604	Express/multiomics_gene_evidence_matrix.tsv
+C	mutually_exclusive_evidence_class	No detected omics support	11423	33725	33.8710155670867	Express/multiomics_gene_evidence_matrix.tsv
+C	mutually_exclusive_evidence_class	Single RNA	3018	33725	8.94885100074129	Express/multiomics_gene_evidence_matrix.tsv
+C	mutually_exclusive_evidence_class	Two RNA	1608	33725	4.76797627872498	Express/multiomics_gene_evidence_matrix.tsv
+C	mutually_exclusive_evidence_class	Three RNA only	17187	33725	50.9621942179392	Express/multiomics_gene_evidence_matrix.tsv
+C	mutually_exclusive_evidence_class	Non-all-three RNA + proteomics	5	33725	0.0148257968865827	Express/multiomics_gene_evidence_matrix.tsv
+C	mutually_exclusive_evidence_class	Three RNA + proteomics	279	33725	0.827279466271312	Express/multiomics_gene_evidence_matrix.tsv
+C	mutually_exclusive_evidence_class	Three RNA + >=2 unique peptides	205	33725	0.607857672349889	Express/multiomics_gene_evidence_matrix.tsv
+D	proteomics_gene_support	>=1 unique peptide	489	33725	1.44996293550778	Express/multiomics_gene_evidence_matrix.tsv
+D	proteomics_gene_support	>=2 unique peptides	205	33725	0.607857672349889	Express/multiomics_gene_evidence_matrix.tsv
+D	proteomics_gene_support	>=3 unique peptides	112	33725	0.332097850259451	Express/multiomics_gene_evidence_matrix.tsv
+D	proteomics_gene_support	>=5 unique peptides	38	33725	0.112676056338028	Express/multiomics_gene_evidence_matrix.tsv
+D	proteomics_gene_support	Three RNA + proteomics	484	33725	1.4351371386212	Express/multiomics_gene_evidence_matrix.tsv
+D	proteomics_gene_support	Three RNA + >=2 unique peptides	205	33725	0.607857672349889	Express/multiomics_gene_evidence_matrix.tsv

@@ -4,8 +4,10 @@ args <- commandArgs(trailingOnly = TRUE)
 output_prefix <- if (length(args) >= 1) {
   args[[1]]
 } else {
-  "figures/Tt_Figure4_annotation_completeness_v1"
+  "figures/Tt_Figure4_annotation_completeness_v20260916.1"
 }
+
+script_version <- "20260916.1"
 
 dir.create(dirname(output_prefix), recursive = TRUE, showWarnings = FALSE)
 
@@ -411,14 +413,6 @@ draw_naming_rescue_panel <- function(x0, y0, width, height, naming_df, rescue_df
               gp = gpar(fontsize = 7.0, col = line_col))
   }
 
-  note_x <- x0 + width * 0.195
-  grid.roundrect(x = note_x, y = y0 + 0.057, width = width * 0.38, height = 0.054,
-                 r = unit(0.008, "snpc"),
-                 gp = gpar(fill = note_fill, col = "#D9B36A", lwd = 0.8))
-  grid.text("BUSCO is a supplemental marker set;\nannotation support is primarily evidence-layer based.",
-            x = note_x, y = y0 + 0.057,
-            gp = gpar(fontsize = 7.2, col = line_col, lineheight = 0.95))
-
   bar_left <- x0 + width * 0.610
   bar_right <- x0 + width - 0.065
   bar_w <- bar_right - bar_left
@@ -634,13 +628,7 @@ write.table(rescue_df[, c("label", "count", "total")],
 draw_figure <- function() {
   grid.newpage()
   grid.rect(gp = gpar(fill = "white", col = NA))
-
-  grid.text("Figure 4. Annotation workflow and summary of annotation completeness",
-            x = 0.5, y = 0.966,
-            gp = gpar(fontsize = 22, fontface = "bold", col = line_col))
-  grid.text("Data-derived structural prediction, functional evidence layers, BUSCO context, and lineage-aware coding-space support",
-            x = 0.5, y = 0.936,
-            gp = gpar(fontsize = 10.6, col = muted_col))
+  pushViewport(viewport(x = 0.5, y = 0.45, width = 1.04, height = 1.34))
 
   draw_panel_title("A", "Annotation pipeline", 0.045, 0.888)
   draw_panel_title("B", "Gene, protein, and evidence counts", 0.535, 0.888)
@@ -651,7 +639,7 @@ draw_figure <- function() {
   draw_horizontal_bar_panel(0.545, 0.555, 0.400, 0.300, evidence_counts, protein_count)
   draw_completeness_panel(0.055, 0.155, 0.400, 0.300, busco, tv_mapping, tv_reference_total)
   draw_naming_rescue_panel(0.545, 0.155, 0.400, 0.300, naming_df, rescue_df, protein_count)
-
+  popViewport()
 }
 
 png(paste0(output_prefix, ".png"), width = 16, height = 10.5, units = "in", res = 300)

@@ -4,8 +4,10 @@ args <- commandArgs(trailingOnly = TRUE)
 output_prefix <- if (length(args) >= 1) {
   args[[1]]
 } else {
-  "figures/Tt_Figure5_family_comparison_v1"
+  "figures/Tt_Figure5_family_comparison_v20260916.1"
 }
+
+script_version <- "20260916.1"
 
 dir.create(dirname(output_prefix), recursive = TRUE, showWarnings = FALSE)
 
@@ -338,7 +340,8 @@ draw_signal_panel <- function(x0, y0, width, height, signal_df) {
   draw_panel_frame(x0, y0, width, height)
 
   left <- x0 + 0.080
-  right <- x0 + width * 0.480
+  # v20260916.1: the former interpretation card is in the legend; chart spans panel C.
+  right <- x0 + width * 0.900
   bottom <- y0 + 0.090
   top <- y0 + height - 0.075
   plot_w <- right - left
@@ -391,24 +394,6 @@ draw_signal_panel <- function(x0, y0, width, height, signal_df) {
     )
   }
 
-  caution_x <- x0 + width * 0.735
-  caution_y <- y0 + height / 2
-  caution_w <- width * 0.405
-  caution_h <- height - 0.090
-  grid.roundrect(x = caution_x, y = caution_y, width = caution_w, height = caution_h,
-                 r = unit(0.010, "snpc"),
-                 gp = gpar(fill = note_fill, col = line_col, lwd = 1.0))
-  grid.text("Interpretation guardrail",
-            x = caution_x, y = caution_y + caution_h / 2 - 0.035,
-            gp = gpar(fontsize = 11.0, fontface = "bold", col = line_col))
-  grid.text(
-    wrap_text(
-      "Armadillo proteins lack canonical signal peptides in this run, supporting a mostly non-secretory interpretation. For BspA/LRR proteins, absence of SignalP should remain cautious because incomplete N-termini, divergent signal peptides, or non-canonical trafficking can reduce prediction sensitivity.",
-      58
-    ),
-    x = caution_x, y = caution_y - 0.008,
-    gp = gpar(fontsize = 8.4, col = line_col, lineheight = 0.96)
-  )
 }
 
 tv_full_counts <- read_blast_family_counts(paths$full_tv_blast, "Tv BLAST all hits")
@@ -498,13 +483,7 @@ write.table(metrics_out, paste0(output_prefix, "_metrics.tsv"),
 draw_figure <- function() {
   grid.newpage()
   grid.rect(gp = gpar(fill = "white", col = NA))
-
-  grid.text("Figure 5. Lineage-aware versus domain-based annotation of expanded gene families",
-            x = 0.5, y = 0.966,
-            gp = gpar(fontsize = 22, fontface = "bold", col = line_col))
-  grid.text("Data-derived comparison of Tv BLAST text labels, InterProScan domain calls, and SignalP localization context",
-            x = 0.5, y = 0.936,
-            gp = gpar(fontsize = 10.6, col = muted_col))
+  pushViewport(viewport(x = 0.5, y = 0.45, width = 1.04, height = 1.34))
 
   draw_panel_title("A", "Family comparison", 0.045, 0.888)
   draw_panel_title("B", "Conceptual reinterpretation", 0.648, 0.888)
@@ -513,7 +492,7 @@ draw_figure <- function() {
   draw_family_bar_panel(0.055, 0.545, 0.555, 0.305, family_counts)
   draw_reinterpretation_panel(0.655, 0.545, 0.290, 0.305, family_counts)
   draw_signal_panel(0.055, 0.150, 0.890, 0.300, signal_df)
-
+  popViewport()
 }
 
 png(paste0(output_prefix, ".png"), width = 16, height = 10.5, units = "in", res = 300)

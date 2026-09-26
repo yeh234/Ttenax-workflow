@@ -4,8 +4,10 @@ args <- commandArgs(trailingOnly = TRUE)
 output_prefix <- if (length(args) >= 1) {
   args[[1]]
 } else {
-  "figures/Tt_Figure3_depth_validation_v1"
+  "figures/Tt_Figure3_depth_validation_v20260916.1"
 }
+
+script_version <- "20260916.1"
 
 dir.create(dirname(output_prefix), recursive = TRUE, showWarnings = FALSE)
 
@@ -543,23 +545,6 @@ draw_reduction_panel <- function(x0, y0, width, height, assemblies,
     gp = gpar(fontsize = 8.7, col = line_col)
   )
 
-  grid.roundrect(
-    x = left + plot_w / 2,
-    y = y0 + 0.044,
-    width = 0.270,
-    height = 0.050,
-    r = unit(0.008, "snpc"),
-    gp = gpar(fill = note_fill, col = "#D9B36A", lwd = 0.8)
-  )
-  grid.text(
-    paste0(
-      "Haplotig reduction: -", fmt_int(removed_contigs),
-      " contigs, -", fmt2(span_loss_mb), " Mb"
-    ),
-    x = left + plot_w / 2,
-    y = y0 + 0.044,
-    gp = gpar(fontsize = 7.9, col = line_col)
-  )
 }
 
 draw_genome_size_panel <- function(x0, y0, width, height, assembly_range,
@@ -680,20 +665,6 @@ draw_genome_size_panel <- function(x0, y0, width, height, assembly_range,
     gp = gpar(fontsize = 8.7, col = line_col)
   )
 
-  grid.roundrect(
-    x = x0 + width / 2,
-    y = y0 + 0.025,
-    width = width - 0.050,
-    height = 0.040,
-    r = unit(0.008, "snpc"),
-    gp = gpar(fill = note_fill, col = "#D9B36A", lwd = 0.8)
-  )
-  grid.text(
-    "Primary span is supported near 100-109 Mb; the remaining difference suggests unresolved or collapsed repeats.",
-    x = x0 + width / 2,
-    y = y0 + 0.025,
-    gp = gpar(fontsize = 7.7, col = line_col)
-  )
 }
 
 depth_df <- read_depth_table("contig_mean_depth.tsv")
@@ -804,25 +775,7 @@ write.table(
 draw_figure <- function() {
   grid.newpage()
   grid.rect(gp = gpar(fill = "white", col = NA))
-
-  grid.text(
-    "Figure 3. Read-depth profiling, repeat-collapse diagnosis, and genome-size interpretation",
-    x = 0.5,
-    y = 0.966,
-    gp = gpar(fontsize = 22, fontface = "bold", col = line_col)
-  )
-  grid.text(
-    expression(
-      paste(
-        "Data-derived validation of the selected ",
-        italic("T. tenax"),
-        " backbone, haplotig reduction, and residual high-depth repeat signal"
-      )
-    ),
-    x = 0.5,
-    y = 0.936,
-    gp = gpar(fontsize = 10.8, col = muted_col)
-  )
+  pushViewport(viewport(x = 0.5, y = 0.45, width = 1.04, height = 1.34))
 
   draw_panel_title("A", "Contig mean-depth distribution", 0.045, 0.888)
   draw_panel_title("B", "Depth versus contig length", 0.535, 0.888)
@@ -871,7 +824,7 @@ draw_figure <- function() {
     flow_center = flow_cytometry_center_mb,
     flow_sd = flow_cytometry_sd_mb
   )
-
+  popViewport()
 }
 
 png(paste0(output_prefix, ".png"), width = 16, height = 10.5, units = "in", res = 300)

@@ -1,0 +1,3 @@
+workflow	complete_pct	single_pct	duplicated_pct	fragmented_pct	missing_pct	complete_count	single_count	duplicated_count	fragmented_count	missing_count	total_buscos	internal_stop_complete
+Miniprot	31.8	31	0.8	2.3	65.9	41	40	1	3	85	129	28
+MetaEuk	40.3	37.2	3.1	13.2	46.5	52	48	4	17	60	129	NA
