@@ -1,0 +1,55 @@
+column	definition
+GeneID	One row per predicted protein. AC16WH gene identifier.
+TranscriptID	AC16WH transcript identifier
+ProteinID	AC16WH predicted protein identifier
+Original_protein_ID	Original input-table identifier (original column was named GeneID but held protein IDs)
+Functional_Product_Name	Original comprehensive-table Final_Product_Name, preserved as functional interpretation, not asserted to equal the GFF3/GenBank product.
+Naming_Source	Unchanged functional annotation value from the original comprehensive table
+Length_aa	Length of public GenBank protein, excluding terminal stop.
+InterPro_Summary	Unchanged functional annotation value from the original comprehensive table
+Tv_BLAST_Desc	Unchanged functional annotation value from the original comprehensive table
+EggNOG_Desc	Unchanged functional annotation value from the original comprehensive table
+GO_Terms	Unchanged functional annotation value from the original comprehensive table
+InterPro_IDs	Unchanged functional annotation value from the original comprehensive table
+KEGG_Pathways	Unchanged functional annotation value from the original comprehensive table
+Gene_DRS_count	Copied gene-level field from Ttenax_multiomics_gene_evidence_matrix_v1.tsv; repeated across isoforms. See evidence dictionary.
+Gene_DRS_support	Copied gene-level field from Ttenax_multiomics_gene_evidence_matrix_v1.tsv; repeated across isoforms. See evidence dictionary.
+Gene_DRS_ge5	Copied gene-level field from Ttenax_multiomics_gene_evidence_matrix_v1.tsv; repeated across isoforms. See evidence dictionary.
+Gene_DRS_ge10	Copied gene-level field from Ttenax_multiomics_gene_evidence_matrix_v1.tsv; repeated across isoforms. See evidence dictionary.
+Gene_SR_cDNA_count	Copied gene-level field from Ttenax_multiomics_gene_evidence_matrix_v1.tsv; repeated across isoforms. See evidence dictionary.
+Gene_SR_cDNA_support	Copied gene-level field from Ttenax_multiomics_gene_evidence_matrix_v1.tsv; repeated across isoforms. See evidence dictionary.
+Gene_SR_cDNA_ge5	Copied gene-level field from Ttenax_multiomics_gene_evidence_matrix_v1.tsv; repeated across isoforms. See evidence dictionary.
+Gene_SR_cDNA_ge10	Copied gene-level field from Ttenax_multiomics_gene_evidence_matrix_v1.tsv; repeated across isoforms. See evidence dictionary.
+Gene_LR_cDNA_count	Copied gene-level field from Ttenax_multiomics_gene_evidence_matrix_v1.tsv; repeated across isoforms. See evidence dictionary.
+Gene_LR_cDNA_support	Copied gene-level field from Ttenax_multiomics_gene_evidence_matrix_v1.tsv; repeated across isoforms. See evidence dictionary.
+Gene_LR_cDNA_ge5	Copied gene-level field from Ttenax_multiomics_gene_evidence_matrix_v1.tsv; repeated across isoforms. See evidence dictionary.
+Gene_LR_cDNA_ge10	Copied gene-level field from Ttenax_multiomics_gene_evidence_matrix_v1.tsv; repeated across isoforms. See evidence dictionary.
+Gene_RNA_platforms_supported	Copied gene-level field from Ttenax_multiomics_gene_evidence_matrix_v1.tsv; repeated across isoforms. See evidence dictionary.
+Gene_Any_RNA_support	Copied gene-level field from Ttenax_multiomics_gene_evidence_matrix_v1.tsv; repeated across isoforms. See evidence dictionary.
+Gene_All_three_RNA_support	Copied gene-level field from Ttenax_multiomics_gene_evidence_matrix_v1.tsv; repeated across isoforms. See evidence dictionary.
+Gene_Proteomics_support	Copied gene-level field from Ttenax_multiomics_gene_evidence_matrix_v1.tsv; repeated across isoforms. See evidence dictionary.
+Gene_Max_unique_peptides	Copied gene-level field from Ttenax_multiomics_gene_evidence_matrix_v1.tsv; repeated across isoforms. See evidence dictionary.
+Gene_Sum_unique_peptides_reported	Copied gene-level field from Ttenax_multiomics_gene_evidence_matrix_v1.tsv; repeated across isoforms. See evidence dictionary.
+Gene_Proteomics_total_PSMs	Copied gene-level field from Ttenax_multiomics_gene_evidence_matrix_v1.tsv; repeated across isoforms. See evidence dictionary.
+Gene_Proteomics_total_peptides_reported	Copied gene-level field from Ttenax_multiomics_gene_evidence_matrix_v1.tsv; repeated across isoforms. See evidence dictionary.
+Gene_Proteomics_max_coverage_percent	Copied gene-level field from Ttenax_multiomics_gene_evidence_matrix_v1.tsv; repeated across isoforms. See evidence dictionary.
+Gene_Proteomics_max_Mascot_score	Copied gene-level field from Ttenax_multiomics_gene_evidence_matrix_v1.tsv; repeated across isoforms. See evidence dictionary.
+Gene_High_confidence_proteomics_2_unique_peptides	Copied gene-level field from Ttenax_multiomics_gene_evidence_matrix_v1.tsv; repeated across isoforms. See evidence dictionary.
+Gene_Strong_proteomics_3_unique_peptides	Copied gene-level field from Ttenax_multiomics_gene_evidence_matrix_v1.tsv; repeated across isoforms. See evidence dictionary.
+Gene_Very_strong_proteomics_5_unique_peptides	Copied gene-level field from Ttenax_multiomics_gene_evidence_matrix_v1.tsv; repeated across isoforms. See evidence dictionary.
+Gene_Multiomics_support	Copied gene-level field from Ttenax_multiomics_gene_evidence_matrix_v1.tsv; repeated across isoforms. See evidence dictionary.
+Gene_Evidence_class	Copied gene-level field from Ttenax_multiomics_gene_evidence_matrix_v1.tsv; repeated across isoforms. See evidence dictionary.
+Gene_Best_protein_by_unique_peptides	Copied gene-level field from Ttenax_multiomics_gene_evidence_matrix_v1.tsv; repeated across isoforms. See evidence dictionary.
+Evidence_scope	Gene-level evidence is not isoform-specific evidence.
+Original_Analysis_Length_aa	Length in the unchanged original analysis/PRIDE search protein FASTA.
+Original_Reference_GFF3_Product_Name	Historical v1.0 GFF3 product; not the v1.1 authoritative product.
+Original_name_agreement	Historical original-table versus v1.0 GFF3 product comparison.
+GenBank_Product_Name	Authoritative public GenBank CDS product for GCA_061597355.1.
+GenBank_protein_accession	Public protein accession including version.
+GenBank_contig_accession	Public nucleotide accession including version.
+Internal_contig_ID	Original contig ID mapped through official assembly report.
+Assembly_accession	Authoritative GenBank Assembly accession.
+Sequence_version	Public sequence authority adopted for this release.
+Sequence_change_from_analysis	Exact all-protein comparison with historical analysis FASTA; see sequence-change audit.
+Functional_annotation_provenance	Functional predictions were produced on original analysis sequences; not rerun on this release.
+Evidence_provenance	Original gene-level RNA/peptide support, not re-estimated with the v1.1 protein database.

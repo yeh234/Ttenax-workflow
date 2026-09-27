@@ -4,10 +4,8 @@ args <- commandArgs(trailingOnly = TRUE)
 output_prefix <- if (length(args) >= 1) {
   args[[1]]
 } else {
-  "figures/Tt_Figure5_family_comparison_v20260916.1"
+  "figures/Figure5_family_comparison"
 }
-
-script_version <- "20260916.1"
 
 dir.create(dirname(output_prefix), recursive = TRUE, showWarnings = FALSE)
 
@@ -340,7 +338,7 @@ draw_signal_panel <- function(x0, y0, width, height, signal_df) {
   draw_panel_frame(x0, y0, width, height)
 
   left <- x0 + 0.080
-  # v20260916.1: the former interpretation card is in the legend; chart spans panel C.
+  # The former interpretation card is in the legend; the chart spans panel C.
   right <- x0 + width * 0.900
   bottom <- y0 + 0.090
   top <- y0 + height - 0.075

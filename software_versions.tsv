@@ -14,8 +14,8 @@ BUSCO dataset	eukaryota_odb12	OrthoDB 12.0; dataset version 01	BUSCO eukaryotic 
 GALBA	v1.0.11	TrichDB v68 proteins	Protein-informed structural gene annotation
 gffread	v0.12.9	NA	Extract predicted CDS and protein sequences from GALBA GFF3
 tRNAscan-SE	v2.0.12	NA	tRNA prediction
-EggNOG-mapper	v2.1.13	Expected eggNOG DB v5.0.2; installed DB version unknown	Orthology-based functional annotation
-EggNOG database	v5.0.2 expected; installed DB version unknown	eggnog.db not found in annotation environment	EggNOG-mapper annotation database
+EggNOG-mapper	v2.1.13	eggNOG DB v5.0.2; HPC SQLite version metadata verified	Orthology-based functional annotation
+EggNOG database	v5.0.2	HPC eggnog.db version table	EggNOG-mapper annotation database
 DIAMOND	v2.1.21	NA	Fast protein similarity search backend for EggNOG-mapper
 BLAST+	v2.12.0+	TrichDB v68	Homology search against protein/reference databases
 InterProScan	v6.0.0	InterPro v108.0; Pfam v38.1; SignalP v6.0	Protein domain, family, and signal peptide annotation
@@ -30,6 +30,6 @@ fastp	v1.3.2	NA	Illumina read trimming and QC
 NanoPlot	v1.46.2 (DRS hac); v1.20.0 (cDNA sup)	NA	Nanopore read-length and quality QC
 Python	3.13.13 (QUAST); 3.10.10 (NanoPlot DRS); 3.6.10 (NanoPlot cDNA)	NA	Tool/runtime environments captured in logs
 R / R packages	R 4.4.3; ggplot2 3.5.2; gridExtra 2.3	r-base >=4.3 listed in workflow env YAML	Figure plotting and summary visualization
-Proteome Discoverer	v2.3	NA	Proteomics data processing
-Mascot	v2.5	NA	Proteomics database search
+Proteome Discoverer	2.3.0.523	NA	Proteomics data processing; version from PRIDE project protocol
+Mascot	2.6.2	NA	Proteomics database search; version from PRIDE project protocol
 TrichDB	v68	T. vaginalis G3 database	Cross-species protein reference and homology annotation database

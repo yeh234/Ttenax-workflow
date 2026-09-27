@@ -4,10 +4,8 @@ args <- commandArgs(trailingOnly = TRUE)
 output_prefix <- if (length(args) >= 1) {
   args[[1]]
 } else {
-  "figures/Tt_Figure1_workflow_v20260916.1"
+  "figures/Figure1_workflow"
 }
-
-script_version <- "20260916.1"
 
 dir.create(dirname(output_prefix), recursive = TRUE, showWarnings = FALSE)
 
@@ -167,7 +165,7 @@ panel_a_boxes <- list(
 
 draw_figure <- function() {
   grid.newpage()
-  # v20260916.1: use the former heading/footer space for the panel artwork.
+  # Use the former heading/footer space for the panel artwork.
   pushViewport(viewport(x = 0.5, y = 0.44, width = 1.04, height = 1.30))
 
   grid.rect(gp = gpar(fill = panel_fill, col = NA))

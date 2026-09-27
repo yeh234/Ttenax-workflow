@@ -1,4 +1,0 @@
-label	path	span_bp	span_mb	n50_bp	n50_kb	contigs
-len15k backbone	flye_len15k/assembly.fasta	101428890	101.42889	924532	924.532	212
-haplotig-reduced draft	flye_len15k/assembly.no_haplotig.fasta	99223629	99.223629	940535	940.535	178
-final annotation reference	dorado_polish_gpu1/draft.polish2.bs6.fasta.fai	99194240	99.19424	939459	939.459	178

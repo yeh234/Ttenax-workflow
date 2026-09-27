@@ -1,0 +1,47 @@
+Path	Category	Description
+.gitignore	Repository configuration	Excludes generated figures, results, caches, and dated working directories
+CHECKSUMS.sha256	Manifest	SHA-256 checksums for repository payload files
+FILE_INVENTORY.tsv	Manifest	Path-level description of repository contents
+FILE_LIST.txt	Manifest	Sorted repository payload paths
+LICENSE	License	CC BY 4.0 license
+README.md	Documentation	Repository overview, public identifiers, and usage
+SOP/STAR_intron_support_SOP.md	Workflow	STAR junction-support procedure
+SOP/assembly_annotation_SOP.md	Workflow	Assembly and annotation procedure
+SOP/multiomics_validation_SOP.md	Workflow	RNA and proteomics evidence-integration procedure
+annotation/Ttenax_annotation_v1.gff3	Annotation	GenBank-synchronized structural annotation in GFF3 format
+annotation/Ttenax_annotation_v1.gtf	Annotation	GenBank-synchronized structural annotation in GTF format
+annotation/Ttenax_gene_id_mapping_v1.tsv	Annotation	Internal-to-AC16WH identifier mapping
+annotation/Ttenax_multiomics_gene_evidence_matrix_v1.tsv	Evidence	Gene-level RNA and proteomics evidence matrix
+annotation/Ttenax_predicted_cds_v1.fna	Annotation	GenBank-synchronized coding sequences
+annotation/Ttenax_predicted_proteins_v1.faa	Annotation	GenBank-synchronized protein sequences
+annotation/star_intron_support/README.md	Documentation	STAR-support file interpretation
+annotation/star_intron_support/Ttenax_STAR_supported_introns_v1.tsv	Evidence	Compact STAR-supported intron table
+data/contamination_screening/FCS_GX_action_report.tsv	Validation	FCS-GX corrective-action report
+data/contamination_screening/FCS_GX_taxonomy_report.tsv	Validation	FCS-GX taxonomy report
+data/contamination_screening/FCS_adaptor_report.tsv	Validation	FCS-adaptor report
+data/contamination_screening/GCA_061597355.1_Ttenax_Hs4_NIH_ATCC30207_v1_fcs_report.txt	Validation	NCBI Assembly contamination-screening report
+data/contamination_screening/README.md	Documentation	Contamination-screening methods and interpretation
+docs/EVIDENCE_FIELDS.md	Documentation	Annotation and evidence-field definitions
+docs/PLOTTING_INPUTS.tsv	Documentation	Relative inputs used by the Figure 1–6 scripts
+scripts/apply_gene_id_mapping_to_tables.py	Workflow	Applies the stable identifier mapping to evidence tables
+scripts/build_multiomics_gene_evidence_matrix.py	Workflow	Builds the gene-level multi-omics evidence matrix
+scripts/figure_plotting_scripts/plot_figure1_workflow.R	Figure code	Generates Figure 1
+scripts/figure_plotting_scripts/plot_figure2_assembly_strategy.R	Figure code	Generates Figure 2
+scripts/figure_plotting_scripts/plot_figure3_depth_validation.R	Figure code	Generates Figure 3
+scripts/figure_plotting_scripts/plot_figure4_annotation_completeness.R	Figure code	Generates Figure 4
+scripts/figure_plotting_scripts/plot_figure5_family_comparison.R	Figure code	Generates Figure 5
+scripts/figure_plotting_scripts/plot_figure6_multiomics_support.R	Figure code	Generates Figure 6
+scripts/rename_ttenax_annotation_ids.py	Workflow	Converts annotation identifiers to the AC16WH namespace
+software_versions.tsv	Provenance	Software, database, and model versions
+tables/Figure1_source_data.tsv	Figure data	Figure 1 source data
+tables/Figure2_source_data.tsv	Figure data	Figure 2 source data
+tables/Figure3_source_data.tsv	Figure data	Figure 3 source data and contig classes
+tables/Figure4_source_data.tsv	Figure data	Figure 4 source data
+tables/Figure5_source_data.tsv	Figure data	Figure 5 source data
+tables/Figure6_source_data.tsv	Figure data	Figure 6 source data
+tables/Supplementary_Tables_S1-S7.xlsx	Supplementary data	Supplementary Tables S1–S7
+tables/Ttenax_comprehensive_annotation_columns.tsv	Annotation	Definitions for the complete annotation table
+tables/Ttenax_comprehensive_annotation_table.tsv.gz	Annotation	Compressed complete annotation and evidence table
+tables/Ttenax_contig_GenBank_crosswalk.tsv	Crosswalk	Internal contig IDs to public GenBank accessions
+tables/Ttenax_contig_status.tsv	Assembly validation	Backbone contig length, depth, class, and retain/remove status
+tables/Ttenax_protein_GenBank_crosswalk.tsv	Crosswalk	AC16WH protein IDs to public GenBank protein accessions

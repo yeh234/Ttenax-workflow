@@ -4,10 +4,8 @@ args <- commandArgs(trailingOnly = TRUE)
 output_prefix <- if (length(args) >= 1) {
   args[[1]]
 } else {
-  "figures/Tt_Figure4_annotation_completeness_v20260916.1"
+  "figures/Figure4_annotation_completeness"
 }
-
-script_version <- "20260916.1"
 
 dir.create(dirname(output_prefix), recursive = TRUE, showWarnings = FALSE)
 

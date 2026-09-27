@@ -1,0 +1,2 @@
+##[["FCS genome report", 2, 1], {"git-rev": "v0.5.5-9-gfc836c1", "run-date": "Fri Aug 21 21:53:04 2026", "db": {"build-date": "2023-01-24", "seqs": 3025824, "Gbp": 709.264}, "run-info": {"agg-cvg": 0.726714, "asserted-div": "prst:monads", "inferred-primary-divs": ["prst:monads"], "corrected-primary-divs": ["prst:monads"], "genome-hash": "d2686b7526d7c355"}}]
+#seq_id	start_pos	end_pos	seq_len	action	div	agg_cont_cov	top_tax_name
