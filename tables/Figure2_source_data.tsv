@@ -1,18 +1,18 @@
 source_table	label	path	span_mb	n50_kb	contigs	selected	metric	value
-figures/Tt_Figure2_assembly_strategy_v2_source_metrics.tsv	Full HQ	flye_hq/40-polishing/filtered_contigs.fasta.fai	77.611851	245.214	1572	FALSE		
-figures/Tt_Figure2_assembly_strategy_v2_source_metrics.tsv	Full raw	flye_raw/40-polishing/filtered_contigs.fasta.fai	61.980456	169.834	2997	FALSE		
-figures/Tt_Figure2_assembly_strategy_v2_source_metrics.tsv	asm60x HQ	flye_asm60x_hq/40-polishing/filtered_contigs.fasta.fai	96.906416	734.218	331	FALSE		
-figures/Tt_Figure2_assembly_strategy_v2_source_metrics.tsv	asm60x raw	flye_asm60x_raw/40-polishing/filtered_contigs.fasta.fai	67.870274	214.097	834	FALSE		
-figures/Tt_Figure2_assembly_strategy_v2_source_metrics.tsv	>=15 kb	flye_len15k/assembly.fasta	101.42889	924.532	212	TRUE		
-figures/Tt_Figure2_assembly_strategy_v2_source_metrics.tsv	>=20 kb	flye_len20k/40-polishing/filtered_contigs.fasta.fai	102.059527	753.608	273	FALSE		
-figures/Tt_Figure2_assembly_strategy_v2_source_metrics.tsv	Long-biased	flye_longbiased_8p22Gb_hq/40-polishing/filtered_contigs.fasta.fai	96.733227	732.908	320	FALSE		
-figures/Tt_Figure2_assembly_strategy_v2_source_metrics.tsv	Structural backbone	flye_len15k/assembly.fasta	101.42889	924.532	212	FALSE		
-figures/Tt_Figure2_assembly_strategy_v2_source_metrics.tsv	Haplotig-reduced draft	flye_len15k/assembly.no_haplotig.fasta	99.223629	940.535	178	FALSE		
-figures/Tt_Figure2_assembly_strategy_v2_source_metrics.tsv	Archived single-round reference	final_ref/Ttenax.nohap.dorado_polished.fasta.fai	99.190277	939.46	178	FALSE		
-figures/Tt_Figure2_assembly_strategy_v2_source_metrics.tsv	Polish round 1	dorado_polish_gpu1/draft.polish1.bs6.fasta.fai	99.198379	939.464	178	FALSE		
-figures/Tt_Figure2_assembly_strategy_v2_source_metrics.tsv	Final annotation reference	dorado_polish_gpu1/draft.polish2.bs6.fasta.fai	99.19424	939.459	178	FALSE		
-figures/Tt_Figure2_assembly_strategy_v2_depth_metrics.tsv							single_copy_depth_x	102.56
-figures/Tt_Figure2_assembly_strategy_v2_depth_metrics.tsv							estimated_genome_size_mb	108.831948937207
-figures/Tt_Figure2_assembly_strategy_v2_depth_metrics.tsv							haplotig_like_contigs	34
-figures/Tt_Figure2_assembly_strategy_v2_depth_metrics.tsv							very_low_depth_contigs	3
-figures/Tt_Figure2_assembly_strategy_v2_depth_metrics.tsv							strong_high_depth_contigs	6
+figures/Figure2_assembly_strategy_source_metrics.tsv	Full HQ	flye_hq/40-polishing/filtered_contigs.fasta.fai	77.611851	245.214	1572	FALSE		
+figures/Figure2_assembly_strategy_source_metrics.tsv	Full raw	flye_raw/40-polishing/filtered_contigs.fasta.fai	61.980456	169.834	2997	FALSE		
+figures/Figure2_assembly_strategy_source_metrics.tsv	asm60x HQ	flye_asm60x_hq/40-polishing/filtered_contigs.fasta.fai	96.906416	734.218	331	FALSE		
+figures/Figure2_assembly_strategy_source_metrics.tsv	asm60x raw	flye_asm60x_raw/40-polishing/filtered_contigs.fasta.fai	67.870274	214.097	834	FALSE		
+figures/Figure2_assembly_strategy_source_metrics.tsv	>=15 kb	flye_len15k/assembly.fasta	101.42889	924.532	212	TRUE		
+figures/Figure2_assembly_strategy_source_metrics.tsv	>=20 kb	flye_len20k/40-polishing/filtered_contigs.fasta.fai	102.059527	753.608	273	FALSE		
+figures/Figure2_assembly_strategy_source_metrics.tsv	Long-biased	flye_longbiased_8p22Gb_hq/40-polishing/filtered_contigs.fasta.fai	96.733227	732.908	320	FALSE		
+figures/Figure2_assembly_strategy_source_metrics.tsv	Structural backbone	flye_len15k/assembly.fasta	101.42889	924.532	212	FALSE		
+figures/Figure2_assembly_strategy_source_metrics.tsv	Haplotig-reduced draft	flye_len15k/assembly.no_haplotig.fasta	99.223629	940.535	178	FALSE		
+figures/Figure2_assembly_strategy_source_metrics.tsv	Archived single-round reference	final_ref/Ttenax.nohap.dorado_polished.fasta.fai	99.190277	939.46	178	FALSE		
+figures/Figure2_assembly_strategy_source_metrics.tsv	Polish round 1	dorado_polish_gpu1/draft.polish1.bs6.fasta.fai	99.198379	939.464	178	FALSE		
+figures/Figure2_assembly_strategy_source_metrics.tsv	Final annotation reference	dorado_polish_gpu1/draft.polish2.bs6.fasta.fai	99.19424	939.459	178	FALSE		
+figures/Figure2_assembly_strategy_depth_metrics.tsv							single_copy_depth_x	102.56
+figures/Figure2_assembly_strategy_depth_metrics.tsv							estimated_genome_size_mb	108.831948937207
+figures/Figure2_assembly_strategy_depth_metrics.tsv							haplotig_like_contigs	34
+figures/Figure2_assembly_strategy_depth_metrics.tsv							very_low_depth_contigs	3
+figures/Figure2_assembly_strategy_depth_metrics.tsv							strong_high_depth_contigs	6

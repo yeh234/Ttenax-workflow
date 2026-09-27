@@ -1,18 +1,18 @@
 source_table	metric	value	source	family	tv_blast_text_hit_rows	tv_blast_text_unique_queries	tv_rescue_text_hit_rows	tv_rescue_text_unique_queries	interproscan_domain_proteins	signalp_positive	total	tmhmm_or_phobius_positive	signalp_percent
-figures/Tt_Figure5_family_comparison_v1_metrics.tsv	full_tv_blast_rows	34849	dorado_polish_gpu1/Tt_vs_Tv_annotation.txt										
-figures/Tt_Figure5_family_comparison_v1_metrics.tsv	full_tv_blast_unique_ttenax_queries	33594	dorado_polish_gpu1/Tt_vs_Tv_annotation.txt										
-figures/Tt_Figure5_family_comparison_v1_metrics.tsv	tv_rescue_rows_for_eggnog_unannotated	15047	dorado_polish_gpu1/eggnogHit/unannotated_vs_Tv_with_desc.txt										
-figures/Tt_Figure5_family_comparison_v1_metrics.tsv	tv_rescue_unique_ttenax_queries	14459	dorado_polish_gpu1/eggnogHit/unannotated_vs_Tv_with_desc.txt										
-figures/Tt_Figure5_family_comparison_v1_metrics.tsv	interproscan_unique_proteins	27223	dorado_polish_gpu1/interproscan_results/Tt_predicted_proteins.aa.fasta.tsv										
-figures/Tt_Figure5_family_comparison_v1_metrics.tsv	tv_blast_text_bspa_plus_lrr_unique_queries	119	dorado_polish_gpu1/Tt_vs_Tv_annotation.txt										
-figures/Tt_Figure5_family_comparison_v1_metrics.tsv	interproscan_bspa_plus_lrr_domain_proteins	1078	dorado_polish_gpu1/interproscan_results/Tt_predicted_proteins.aa.fasta.tsv										
-figures/Tt_Figure5_family_comparison_v1_metrics.tsv	tv_blast_text_armadillo_unique_queries	509	dorado_polish_gpu1/Tt_vs_Tv_annotation.txt										
-figures/Tt_Figure5_family_comparison_v1_metrics.tsv	interproscan_armadillo_domain_proteins	22	dorado_polish_gpu1/interproscan_results/Tt_predicted_proteins.aa.fasta.tsv										
-figures/Tt_Figure5_family_comparison_v1_metrics.tsv	tv_blast_text_kinase_unique_queries	961	dorado_polish_gpu1/Tt_vs_Tv_annotation.txt										
-figures/Tt_Figure5_family_comparison_v1_metrics.tsv	interproscan_kinase_domain_proteins	1293	dorado_polish_gpu1/interproscan_results/Tt_predicted_proteins.aa.fasta.tsv										
-figures/Tt_Figure5_family_comparison_v1_family_counts.tsv				BspA	21	21	20	20	319				
-figures/Tt_Figure5_family_comparison_v1_family_counts.tsv				LRR non-BspA	128	98	33	30	759				
-figures/Tt_Figure5_family_comparison_v1_family_counts.tsv				Armadillo	518	509	483	472	22				
-figures/Tt_Figure5_family_comparison_v1_family_counts.tsv				Kinase	996	961	33	33	1293				
-figures/Tt_Figure5_family_comparison_v1_signal_peptide.tsv				Armadillo						0	22	0	0
-figures/Tt_Figure5_family_comparison_v1_signal_peptide.tsv				BspA						0	319	0	0
+figures/Figure5_family_comparison_metrics.tsv	full_tv_blast_rows	34849	dorado_polish_gpu1/Tt_vs_Tv_annotation.txt										
+figures/Figure5_family_comparison_metrics.tsv	full_tv_blast_unique_ttenax_queries	33594	dorado_polish_gpu1/Tt_vs_Tv_annotation.txt										
+figures/Figure5_family_comparison_metrics.tsv	tv_rescue_rows_for_eggnog_unannotated	15047	dorado_polish_gpu1/eggnogHit/unannotated_vs_Tv_with_desc.txt										
+figures/Figure5_family_comparison_metrics.tsv	tv_rescue_unique_ttenax_queries	14459	dorado_polish_gpu1/eggnogHit/unannotated_vs_Tv_with_desc.txt										
+figures/Figure5_family_comparison_metrics.tsv	interproscan_unique_proteins	27223	dorado_polish_gpu1/interproscan_results/Tt_predicted_proteins.aa.fasta.tsv										
+figures/Figure5_family_comparison_metrics.tsv	tv_blast_text_bspa_plus_lrr_unique_queries	119	dorado_polish_gpu1/Tt_vs_Tv_annotation.txt										
+figures/Figure5_family_comparison_metrics.tsv	interproscan_bspa_plus_lrr_domain_proteins	1078	dorado_polish_gpu1/interproscan_results/Tt_predicted_proteins.aa.fasta.tsv										
+figures/Figure5_family_comparison_metrics.tsv	tv_blast_text_armadillo_unique_queries	509	dorado_polish_gpu1/Tt_vs_Tv_annotation.txt										
+figures/Figure5_family_comparison_metrics.tsv	interproscan_armadillo_domain_proteins	22	dorado_polish_gpu1/interproscan_results/Tt_predicted_proteins.aa.fasta.tsv										
+figures/Figure5_family_comparison_metrics.tsv	tv_blast_text_kinase_unique_queries	961	dorado_polish_gpu1/Tt_vs_Tv_annotation.txt										
+figures/Figure5_family_comparison_metrics.tsv	interproscan_kinase_domain_proteins	1293	dorado_polish_gpu1/interproscan_results/Tt_predicted_proteins.aa.fasta.tsv										
+figures/Figure5_family_comparison_family_counts.tsv				BspA	21	21	20	20	319				
+figures/Figure5_family_comparison_family_counts.tsv				LRR non-BspA	128	98	33	30	759				
+figures/Figure5_family_comparison_family_counts.tsv				Armadillo	518	509	483	472	22				
+figures/Figure5_family_comparison_family_counts.tsv				Kinase	996	961	33	33	1293				
+figures/Figure5_family_comparison_signal_peptide.tsv				Armadillo						0	22	0	0
+figures/Figure5_family_comparison_signal_peptide.tsv				BspA						0	319	0	0
