@@ -14,7 +14,7 @@
 ### NCBI FCS-GX
 
 - Galaxy tool version: 0.5.5+galaxy2
-- FCS-GX revision reported in output: `v0.5.5-9-gfc836c1`
+- FCS-GX build reported in output: `v0.5.5-9-gfc836c1`
 - Database: Complete GX database; build date 2023-01-24; 3,025,824 sequences; 709.264 Gbp
 - Taxonomic identifier: 43075 (`Trichomonas tenax`)
 - Asserted, inferred, and corrected primary division: `prst:monads`
@@ -41,4 +41,3 @@ Neither screen recommended removal or trimming of any contig. The submitted asse
 - `FCS_GX_taxonomy_report.tsv`: `28c04e4de0c2d7730793e458c60a166360f54a24eb9a5f9ecbd17c2c0c7ee99b`
 - `FCS_GX_action_report.tsv`: `7134aa1a999f07ede1e2f799fdebedcdf7498d2c6d8241ea8d92b21e6cc7c271`
 - `FCS_adaptor_report.tsv`: `ef1e9450d34b0d3a110654000dfff742cb3ba9fc697c2ac8c788e0baba3284dd`
-

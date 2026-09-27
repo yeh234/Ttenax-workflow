@@ -2,7 +2,7 @@
 
 Project: Trichomonas tenax genome annotation validation
 
-Repository note: STAR intron support products are archived in `Ttenax_annotation_release_v1.0.0.tar.gz`. This compact GitHub layout keeps the command SOP but does not store STAR BAMs, STAR indexes, or the support-enhanced GFF3/GTF files.
+Repository note: this repository stores the command SOP, the annotation helper script, and a compact table of supported introns. STAR BAMs, STAR indexes, and other regenerated outputs remain external workflow products.
 
 Purpose: Use Illumina short-read RNA-seq splice junctions from STAR to identify annotated introns with exact coordinate and strand support, then generate STAR-support-enhanced GFF3/GTF files.
 
@@ -27,7 +27,8 @@ Important interpretation:
 Run all commands from the repository root:
 
 ```bash
-cd /home/mbird/Workspace/Tt_Genome2026
+PROJECT="${PROJECT:-/path/to/Tt_Genome}"
+cd "$PROJECT"
 ```
 
 Recommended tools:

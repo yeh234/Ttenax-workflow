@@ -6,16 +6,17 @@
 **Final genome:** `draft.polish2.bs6.fasta.gz` or uncompressed `draft.polish2.bs6.fasta`  
 **Primary counting mode:** unstranded featureCounts, `-s 0`  
 
-Repository note: the compact GitHub layout stores the frozen v1 matrix at `annotation/Ttenax_multiomics_gene_evidence_matrix_v1.tsv` and the rebuild helper at `scripts/build_multiomics_gene_evidence_matrix.py`. Large DRS/LR cDNA/SR cDNA reads and BAMs remain external inputs.
+Repository note: the released evidence matrix is at `annotation/Ttenax_multiomics_gene_evidence_matrix_v1.tsv`, and the rebuild helper is at `scripts/build_multiomics_gene_evidence_matrix.py`. Large DRS/LR cDNA/SR cDNA reads and BAMs remain external inputs.
 
 ---
 
 ## 0. Directory layout
 
-Recommended working directory:
+Define a portable project location and run the workflow from that directory:
 
 ```bash
-/NVMe/Tt2026_RNA
+PROJECT="${PROJECT:-/path/to/Tt_multiomics}"
+cd "$PROJECT"
 ```
 
 Suggested subdirectories:

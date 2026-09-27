@@ -13,7 +13,7 @@ Reproducible assembly, annotation, evidence-integration, validation, and figure-
 ## Repository contents
 
 - `SOP/`: command-level assembly, annotation, STAR intron-support, and multi-omics procedures.
-- `scripts/`: identifier conversion, evidence-table construction, and Figure 1–6 plotting code.
+- `scripts/`: identifier conversion, STAR-support annotation, evidence-table construction, and Figure 1–6 plotting code.
 - `annotation/`: GenBank-synchronized GFF3, GTF, CDS, protein, identifier mapping, and compact STAR-support files under stable repository paths.
 - `tables/`: supplementary tables, figure source data, the complete annotation table, contig status, and GenBank crosswalks.
 - `data/contamination_screening/`: FCS-GX, FCS-adaptor, and NCBI contamination-screening reports.
@@ -32,7 +32,7 @@ Large raw reads, alignments, tool indexes, and working directories are stored in
 
 ## Stable paths and versioning
 
-Repository paths use purpose-based names and do not encode revision dates. Git commits, tags, and GitHub Releases record version history. Established annotation filenames retain their original `v1` suffix so links and workflow commands remain stable.
+Repository paths use purpose-based names and do not encode working dates. Git commits, tags, and GitHub Releases record version history. Established annotation filenames retain their original `v1` suffix so links and workflow commands remain stable.
 
 ## Figure generation
 

@@ -1,5 +1,5 @@
 Path	Category	Description
-.gitignore	Repository configuration	Excludes generated figures, results, caches, and dated working directories
+.gitignore	Repository configuration	Excludes generated figures, results, caches, and local scratch files
 CHECKSUMS.sha256	Manifest	SHA-256 checksums for repository payload files
 FILE_INVENTORY.tsv	Manifest	Path-level description of repository contents
 FILE_LIST.txt	Manifest	Sorted repository payload paths
@@ -23,6 +23,7 @@ data/contamination_screening/GCA_061597355.1_Ttenax_Hs4_NIH_ATCC30207_v1_fcs_rep
 data/contamination_screening/README.md	Documentation	Contamination-screening methods and interpretation
 docs/EVIDENCE_FIELDS.md	Documentation	Annotation and evidence-field definitions
 docs/PLOTTING_INPUTS.tsv	Documentation	Relative inputs used by the Figure 1–6 scripts
+scripts/add_star_intron_support_to_annotations.py	Workflow	Adds exact STAR splice-junction support to GFF3 and GTF annotations
 scripts/apply_gene_id_mapping_to_tables.py	Workflow	Applies the stable identifier mapping to evidence tables
 scripts/build_multiomics_gene_evidence_matrix.py	Workflow	Builds the gene-level multi-omics evidence matrix
 scripts/figure_plotting_scripts/plot_figure1_workflow.R	Figure code	Generates Figure 1

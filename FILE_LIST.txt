@@ -22,6 +22,7 @@ data/contamination_screening/GCA_061597355.1_Ttenax_Hs4_NIH_ATCC30207_v1_fcs_rep
 data/contamination_screening/README.md
 docs/EVIDENCE_FIELDS.md
 docs/PLOTTING_INPUTS.tsv
+scripts/add_star_intron_support_to_annotations.py
 scripts/apply_gene_id_mapping_to_tables.py
 scripts/build_multiomics_gene_evidence_matrix.py
 scripts/figure_plotting_scripts/plot_figure1_workflow.R

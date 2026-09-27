@@ -21,7 +21,7 @@ BLAST+	v2.12.0+	TrichDB v68	Homology search against protein/reference databases
 InterProScan	v6.0.0	InterPro v108.0; Pfam v38.1; SignalP v6.0	Protein domain, family, and signal peptide annotation
 InterPro/Pfam database release	InterPro v108.0; Pfam v38.1	InterProScan6 database release	Domain and family database release used by InterProScan
 SignalP	v6.0	InterProScan6 integrated analysis	Signal peptide prediction
-Nextflow	v25.10.3	InterProScan6 revision 82e660a17c	Workflow engine used to launch InterProScan6
+Nextflow	v25.10.3	InterProScan6 build 82e660a17c	Workflow engine used to launch InterProScan6
 Infernal	v1.1.5	NA	Covariance-model RNA search
 Rfam	v15.1	Rfam.cm.gz from Rfam CURRENT FTP	RNA family covariance-model database
 STAR	v2.7.11b	NA	Illumina short-read cDNA alignment

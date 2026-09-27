@@ -1,17 +1,14 @@
-# SOP: Final Figure 1 workflow for the Trichomonas tenax genome project
+# SOP: Assembly and annotation workflow for the Trichomonas tenax genome project
 
 Project: Trichomonas tenax genome assembly, polishing, and annotation
 
-Repository note: in this compact GitHub layout, the frozen v1 release annotation files are under `annotation/`, helper scripts are under `scripts/`, and supplementary tables are under `tables/`. Large raw and intermediate files referenced below are external inputs and are not stored in this repository.
+Repository note: released annotation files are under `annotation/`, workflow scripts are under `scripts/`, and supplementary tables are under `tables/`. Large raw and intermediate files referenced below are external inputs and are not stored in this repository.
 
-Companion figure:
+Companion figure script:
 
-- `archive/Tt_Figure1_workflow_draft_v2.png`
-- `scripts/plot_figure1_workflow.R`
+- `scripts/figure_plotting_scripts/plot_figure1_workflow.R`
 
 Purpose: Provide the final command-level workflow corresponding to Figure 1, from PromethION long-read data through assembly comparison, depth diagnosis, haplotig reduction, polishing, completeness assessment, comparative homology mapping, structural annotation, functional annotation, final annotation merging, and figure rendering.
-
-Last updated: 2026-04-24
 
 ---
 
@@ -41,8 +38,16 @@ The structural backbone was retained for repeat-collapse and exploratory genome-
 
 Use the project workspace that contains raw reads, intermediate assemblies, and annotation outputs.
 
+Define portable locations for the project, external references, containers, and
+raw POD5 input, then run the workflow from the project workspace:
+
 ```bash
-cd /home/mbird/Workspace2026/Tt_Genome
+PROJECT="${PROJECT:-/path/to/Tt_Genome}"
+REFERENCE_ROOT="${REFERENCE_ROOT:-/path/to/reference}"
+CONTAINER_DIR="${CONTAINER_DIR:-/path/to/containers}"
+POD5_DIR="${POD5_DIR:-/path/to/Pod5}"
+
+cd "$PROJECT"
 ```
 
 Suggested directory layout:
@@ -69,11 +74,10 @@ mkdir -p \
 Useful variable block:
 
 ```bash
-PROJECT=/home/mbird/Workspace2026/Tt_Genome
 THREADS=84
-RAW_FASTQ=Raw/Tt_GenomeSUP.fastq
+RAW_FASTQ="$PROJECT/Raw/Tt_GenomeSUP.fastq"
 GENOME_SIZE=140m
-TV_PROT=/home/mbird/Workspace2026/Reference/TrichDBv68/TrichDB-68_TvaginalisG32022_AnnotatedProteins.fasta
+TV_PROT="$REFERENCE_ROOT/TrichDBv68/TrichDB-68_TvaginalisG32022_AnnotatedProteins.fasta"
 ```
 
 ---
@@ -83,7 +87,7 @@ TV_PROT=/home/mbird/Workspace2026/Reference/TrichDBv68/TrichDB-68_TvaginalisG320
 Input:
 
 ```text
-/Tt_genome2026/Pod5
+$POD5_DIR
 ```
 
 Model:
@@ -95,7 +99,7 @@ dna_r10.4.1_e8.2_400bps_sup@v5.2.0
 ### 2.1 Export SUP FASTQ
 
 ```bash
-./dorado basecaller dna_r10.4.1_e8.2_400bps_sup@v5.2.0 /Tt_genome2026/Pod5 \
+./dorado basecaller dna_r10.4.1_e8.2_400bps_sup@v5.2.0 "$POD5_DIR" \
   -r \
   --emit-fastq \
   --emit-summary \
@@ -105,7 +109,7 @@ dna_r10.4.1_e8.2_400bps_sup@v5.2.0
 ### 2.2 Export move-aware BAM for polishing
 
 ```bash
-./dorado basecaller dna_r10.4.1_e8.2_400bps_sup@v5.2.0 /Tt_genome2026/Pod5 \
+./dorado basecaller dna_r10.4.1_e8.2_400bps_sup@v5.2.0 "$POD5_DIR" \
   -r \
   --emit-summary \
   --emit-moves \
@@ -420,11 +424,11 @@ This later polishing stage started from the archived single-round reference and 
 ### 7.1 Setup
 
 ```bash
-SIF=/tmp/mbird/containers/dorado.sif
-MODELDIR=/home/mbird/Workspace2026/Tt_Genome/dorado_models
-READS=/home/mbird/Workspace2026/Tt_Genome/Raw/Tt_GenomeSUP.fastq
-DRAFT0=/home/mbird/Workspace2026/Tt_Genome/final_ref/Ttenax.nohap.dorado_polished.fasta
-WORK=/home/mbird/Workspace2026/Tt_Genome/dorado_polish_gpu1
+SIF="$CONTAINER_DIR/dorado.sif"
+MODELDIR="$PROJECT/dorado_models"
+READS="$PROJECT/Raw/Tt_GenomeSUP.fastq"
+DRAFT0="$PROJECT/final_ref/Ttenax.nohap.dorado_polished.fasta"
+WORK="$PROJECT/dorado_polish_gpu1"
 TALIGN=48
 TPOLISH=24
 INFER=2
@@ -614,7 +618,7 @@ Interpretation: BUSCO was treated as a supplementary completeness indicator for 
 
 ```bash
 miniprot -t 48 --gff draft.polish2.bs6.fasta \
-  /home/mbird/Workspace2026/Reference/TrichDBv68/TrichDB-68_TvaginalisG32022_AnnotatedProteins.fasta \
+  "$TV_PROT" \
   > Tt_alignmentTrichDBv68.gff
 ```
 
@@ -651,9 +655,9 @@ Mapped Tv target fraction: 59.5%
 ### 11.1 Setup
 
 ```bash
-GENOME=/home/mbird/Workspace2026/Tt_Genome/dorado_polish_gpu1/draft.polish2.bs6.fasta
-PROTEIN=/home/mbird/Workspace2026/Reference/TrichDBv68/TrichDB-68_TvaginalisG32022_AnnotatedProteins.fasta
-GALBA_SIF=/path/to/galba.sif
+GENOME="$PROJECT/dorado_polish_gpu1/draft.polish2.bs6.fasta"
+PROTEIN="$TV_PROT"
+GALBA_SIF="$CONTAINER_DIR/galba.sif"
 GMES_HOST=/path/to/gmes
 ```
 
@@ -662,8 +666,8 @@ GMES_HOST=/path/to/gmes
 ```bash
 singularity exec \
   -B ${GMES_HOST}:/opt/gmes \
-  -B "$PWD" \
-  -B /home/mbird/Workspace2026 \
+  -B "$PROJECT" \
+  -B "$REFERENCE_ROOT" \
   ${GALBA_SIF} \
   bash -c 'export PATH=/opt/gmes:$PATH; galba.pl --genome='"${GENOME}"' --prot_seq='"${PROTEIN}"' --threads=84 --crf --gff3 --workingdir=galba_out'
 ```
@@ -752,7 +756,7 @@ Initial EggNOG annotation rate: 57.1%
 mkdir -p Tv_prot_db
 
 makeblastdb \
-  -in /home/mbird/Workspace2026/Reference/TrichDBv68/TrichDB-68_TvaginalisG32022_AnnotatedProteins.fasta \
+  -in "$TV_PROT" \
   -dbtype prot \
   -out Tv_prot_db/Tv_prot_db
 ```
@@ -992,29 +996,30 @@ final_Tt/Tt_Comprehensive_Annotation_Table.tsv
 The detailed multi-omics command SOP is maintained separately:
 
 ```text
-archive/Tt_multiomics_validation_SOP.md
+SOP/multiomics_validation_SOP.md
 ```
 
 Core final products:
 
 ```text
-Express/multiomics_gene_evidence_matrix.tsv
-archive/Figure6_multiomics_support_source_data.tsv
-archive/Figure6_multiomics_support_Tt_tenax.png
+annotation/Ttenax_multiomics_gene_evidence_matrix_v1.tsv
+tables/Figure6_source_data.tsv
+figures/Figure6_multiomics_support.png
 ```
 
 Redraw Figure 6:
 
 ```bash
-cd /home/mbird/Workspace/Tt_Genome2026
+cd "$PROJECT"
 
-Rscript scripts/plot_figure6_multiomics_support.R
+Rscript scripts/figure_plotting_scripts/plot_figure6_multiomics_support.R \
+  figures/Figure6_multiomics_support
 ```
 
 Add STAR-supported intron annotations to GFF3/GTF:
 
 ```bash
-cd /home/mbird/Workspace/Tt_Genome2026
+cd "$PROJECT"
 
 python3 scripts/add_star_intron_support_to_annotations.py \
   --gff3 Express/Tt_Final_Annotation.gff3 \
@@ -1043,29 +1048,29 @@ Expected:
 Detailed STAR-supported intron SOP:
 
 ```text
-archive/Tt_STAR_intron_support_annotation_SOP.md
+SOP/STAR_intron_support_SOP.md
 ```
 
 ---
 
 ## 19. Redraw Figure 1
 
-From the local manuscript/figure workspace:
+From the project workspace:
 
 ```bash
-cd /home/mbird/Workspace/Tt_Genome2026
+cd "$PROJECT"
 
 mkdir -p figures
 
-Rscript scripts/plot_figure1_workflow.R \
-  figures/Tt_Figure1_workflow_v6
+Rscript scripts/figure_plotting_scripts/plot_figure1_workflow.R \
+  figures/Figure1_workflow
 ```
 
 Expected outputs:
 
 ```text
-figures/Tt_Figure1_workflow_v6.png
-figures/Tt_Figure1_workflow_v6.pdf
+figures/Figure1_workflow.png
+figures/Figure1_workflow.pdf
 ```
 
 ---
@@ -1089,7 +1094,7 @@ Use the following wording/logic consistently in manuscript text, figure legends,
 
 ---
 
-## 21. Final deliverables to retain
+## 21. Workflow outputs
 
 Assembly and reference states:
 
@@ -1131,7 +1136,7 @@ Express/multiomics_gene_evidence_matrix.tsv
 Figure products:
 
 ```text
-figures/Tt_Figure1_workflow_v6.png
-figures/Tt_Figure1_workflow_v6.pdf
-archive/Figure6_multiomics_support_Tt_tenax.png
+figures/Figure1_workflow.png
+figures/Figure1_workflow.pdf
+figures/Figure6_multiomics_support.png
 ```
